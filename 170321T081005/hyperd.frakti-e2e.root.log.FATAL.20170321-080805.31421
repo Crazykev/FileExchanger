@@ -1,0 +1,816 @@
+Log file created at: 2017/03/21 08:08:05
+Running on machine: frakti-e2e
+Binary: Built with gc go1.7.3 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+F0321 08:08:05.304607   31421 hyperd.go:173] Hyper serve RPC error: accept tcp 127.0.0.1:22318: use of closed network connection
+goroutine 256 [running]:
+github.com/hyperhq/hyperd/vendor/github.com/golang/glog.stacks(0xc420024001, 0xc4212ed200, 0x459, 0x2710)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/golang/glog/glog.go:769 +0xa5
+github.com/hyperhq/hyperd/vendor/github.com/golang/glog.(*loggingT).output(0x1f5d1c0, 0xc400000003, 0xc42098c780, 0x1ce88f1, 0x9, 0xad, 0x0)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/golang/glog/glog.go:723 +0x1c7
+github.com/hyperhq/hyperd/vendor/github.com/golang/glog.(*loggingT).printf(0x1f5d1c0, 0xc400000003, 0x1570688, 0x19, 0xc420704f80, 0x1, 0x1)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/golang/glog/glog.go:655 +0x14c
+github.com/hyperhq/hyperd/vendor/github.com/golang/glog.Fatalf(0x1570688, 0x19, 0xc420704f80, 0x1, 0x1)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/golang/glog/glog.go:1148 +0x67
+main.mainDaemon.func1(0xc420755400, 0xc4200c2000)
+	/root/go-project/src/github.com/hyperhq/hyperd/hyperd.go:173 +0xc8
+created by main.mainDaemon
+	/root/go-project/src/github.com/hyperhq/hyperd/hyperd.go:175 +0xbc0
+
+goroutine 1 [runnable]:
+syscall.Syscall(0x49, 0x8, 0xc, 0x0, 0x0, 0x0, 0x0)
+	/usr/local/go/src/syscall/asm_linux_amd64.s:18 +0x5
+syscall.Flock(0x8, 0xc, 0x0, 0x0)
+	/usr/local/go/src/syscall/zsyscall_linux_amd64.go:482 +0x4b
+github.com/hyperhq/hyperd/vendor/github.com/syndtr/goleveldb/leveldb/storage.setFileLock(0xc420024098, 0xc420750000, 0x0, 0x0)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/syndtr/goleveldb/leveldb/storage/file_storage_unix.go:59 +0x5c
+github.com/hyperhq/hyperd/vendor/github.com/syndtr/goleveldb/leveldb/storage.(*unixFileLock).release(0xc4200240f8, 0x0, 0x0)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/syndtr/goleveldb/leveldb/storage/file_storage_unix.go:21 +0x35
+github.com/hyperhq/hyperd/vendor/github.com/syndtr/goleveldb/leveldb/storage.(*fileStorage).Close(0xc42075d650, 0x0, 0x0)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/syndtr/goleveldb/leveldb/storage/file_storage.go:486 +0x10c
+github.com/hyperhq/hyperd/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).Close(0xc4207c8000, 0xa4b4e9, 0xc4211f9040)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/syndtr/goleveldb/leveldb/db.go:1081 +0x3a3
+github.com/hyperhq/hyperd/daemon/daemondb.(*DaemonDB).Close(0xc4200b2050, 0xc420b77b18, 0x1)
+	/root/go-project/src/github.com/hyperhq/hyperd/daemon/daemondb/daemondb.go:143 +0x2e
+github.com/hyperhq/hyperd/daemon.(*Daemon).Shutdown(0xc42072a0e0, 0x0, 0x0)
+	/root/go-project/src/github.com/hyperhq/hyperd/daemon/daemon.go:361 +0x188
+main.mainDaemon(0xc420b77ef0)
+	/root/go-project/src/github.com/hyperhq/hyperd/hyperd.go:218 +0xa28
+main.main()
+	/root/go-project/src/github.com/hyperhq/hyperd/hyperd.go:75 +0x41f
+
+goroutine 17 [syscall, 11 minutes, locked to thread]:
+runtime.goexit()
+	/usr/local/go/src/runtime/asm_amd64.s:2086 +0x1
+
+goroutine 5 [syscall]:
+os/signal.signal_recv(0x1f33860)
+	/usr/local/go/src/runtime/sigqueue.go:116 +0x157
+os/signal.loop()
+	/usr/local/go/src/os/signal/signal_unix.go:22 +0x22
+created by os/signal.init.1
+	/usr/local/go/src/os/signal/signal_unix.go:28 +0x41
+
+goroutine 6 [chan receive]:
+github.com/hyperhq/hyperd/vendor/github.com/golang/glog.(*loggingT).flushDaemon(0x1f5d1c0)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/golang/glog/glog.go:882 +0x7a
+created by github.com/hyperhq/hyperd/vendor/github.com/golang/glog.init.1
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/golang/glog/glog.go:410 +0x21d
+
+goroutine 10 [select]:
+github.com/hyperhq/hyperd/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).mpoolDrain(0xc4207c8000)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/syndtr/goleveldb/leveldb/db_state.go:110 +0x236
+created by github.com/hyperhq/hyperd/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/syndtr/goleveldb/leveldb/db.go:140 +0x5b4
+
+goroutine 13 [select, 11 minutes, locked to thread]:
+runtime.gopark(0x1633a40, 0x0, 0x1553147, 0x6, 0x18, 0x2)
+	/usr/local/go/src/runtime/proc.go:259 +0x13a
+runtime.selectgoImpl(0xc42001e730, 0x0, 0x18)
+	/usr/local/go/src/runtime/select.go:423 +0x11d9
+runtime.selectgo(0xc42001e730)
+	/usr/local/go/src/runtime/select.go:238 +0x1c
+runtime.ensureSigM.func1()
+	/usr/local/go/src/runtime/signal1_unix.go:304 +0x2f3
+runtime.goexit()
+	/usr/local/go/src/runtime/asm_amd64.s:2086 +0x1
+
+goroutine 14 [chan receive, 11 minutes]:
+github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon.setupDumpStackTrap.func1(0xc42006a1e0)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/debugtrap_unix.go:17 +0x53
+created by github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon.setupDumpStackTrap
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/debugtrap_unix.go:20 +0xec
+
+goroutine 15 [select, 11 minutes]:
+github.com/hyperhq/hyperd/vendor/github.com/docker/libnetwork.(*controller).watchLoop(0xc420222160)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/libnetwork/store.go:409 +0x151
+created by github.com/hyperhq/hyperd/vendor/github.com/docker/libnetwork.(*controller).startWatch
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/libnetwork/store.go:423 +0xff
+
+goroutine 21 [chan receive, 11 minutes]:
+github.com/hyperhq/hyperd/vendor/github.com/docker/libnetwork/iptables.signalHandler()
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/libnetwork/iptables/firewalld.go:92 +0x59
+created by github.com/hyperhq/hyperd/vendor/github.com/docker/libnetwork/iptables.FirewalldInit
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/libnetwork/iptables/firewalld.go:48 +0xa7
+
+goroutine 50 [IO wait, 11 minutes]:
+net.runtime_pollWait(0x7f01827c7068, 0x72, 0xc421123688)
+	/usr/local/go/src/runtime/netpoll.go:160 +0x59
+net.(*pollDesc).wait(0xc420647090, 0x72, 0xc4211237c8, 0xc420010140)
+	/usr/local/go/src/net/fd_poll_runtime.go:73 +0x38
+net.(*pollDesc).waitRead(0xc420647090, 0x1f2e820, 0xc420010140)
+	/usr/local/go/src/net/fd_poll_runtime.go:78 +0x34
+net.(*netFD).readMsg(0xc420647030, 0xc4205e21b0, 0x10, 0x10, 0xc421138020, 0x1000, 0x1000, 0xffffffffffffffff, 0x0, 0x0, ...)
+	/usr/local/go/src/net/fd_unix.go:297 +0x243
+net.(*UnixConn).readMsg(0xc4200b3860, 0xc4205e21b0, 0x10, 0x10, 0xc421138020, 0x1000, 0x1000, 0xc42066df07, 0xc420647b90, 0x0, ...)
+	/usr/local/go/src/net/unixsock_posix.go:111 +0x91
+net.(*UnixConn).ReadMsgUnix(0xc4200b3860, 0xc4205e21b0, 0x10, 0x10, 0xc421138020, 0x1000, 0x1000, 0x0, 0x0, 0x0, ...)
+	/usr/local/go/src/net/unixsock.go:127 +0xaa
+github.com/hyperhq/hyperd/vendor/github.com/godbus/dbus.(*oobReader).Read(0xc421138000, 0xc4205e21b0, 0x10, 0x10, 0x1020, 0xc421138000, 0x0)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/godbus/dbus/transport_unix.go:21 +0x95
+io.ReadAtLeast(0x1f28da0, 0xc421138000, 0xc4205e21b0, 0x10, 0x10, 0x10, 0x141e840, 0x12d0a01, 0xc421138000)
+	/usr/local/go/src/io/io.go:307 +0xa4
+io.ReadFull(0x1f28da0, 0xc421138000, 0xc4205e21b0, 0x10, 0x10, 0xc, 0x0, 0x0)
+	/usr/local/go/src/io/io.go:325 +0x58
+github.com/hyperhq/hyperd/vendor/github.com/godbus/dbus.(*unixTransport).ReadMessage(0xc42066d040, 0xc4210f6720, 0xc421123d34, 0xc420647138)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/godbus/dbus/transport_unix.go:85 +0x15b
+github.com/hyperhq/hyperd/vendor/github.com/godbus/dbus.(*Conn).inWorker(0xc420069d00)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/godbus/dbus/conn.go:295 +0x4b
+created by github.com/hyperhq/hyperd/vendor/github.com/godbus/dbus.(*Conn).Auth
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/godbus/dbus/auth.go:118 +0x738
+
+goroutine 51 [chan receive, 11 minutes]:
+github.com/hyperhq/hyperd/vendor/github.com/godbus/dbus.(*Conn).outWorker(0xc420069d00)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/godbus/dbus/conn.go:437 +0x5d
+created by github.com/hyperhq/hyperd/vendor/github.com/godbus/dbus.(*Conn).Auth
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/godbus/dbus/auth.go:119 +0x75d
+
+goroutine 53 [IO wait, 11 minutes]:
+net.runtime_pollWait(0x7f01827c6fa8, 0x72, 0x0)
+	/usr/local/go/src/runtime/netpoll.go:160 +0x59
+net.(*pollDesc).wait(0xc420647cd0, 0x72, 0xc420250e20, 0xc420010140)
+	/usr/local/go/src/net/fd_poll_runtime.go:73 +0x38
+net.(*pollDesc).waitRead(0xc420647cd0, 0x1f2e820, 0xc420010140)
+	/usr/local/go/src/net/fd_poll_runtime.go:78 +0x34
+net.(*netFD).accept(0xc420647c70, 0x0, 0x1f2b4e0, 0xc420617140)
+	/usr/local/go/src/net/fd_unix.go:419 +0x238
+net.(*UnixListener).accept(0xc4211252c0, 0xc420250fa0, 0xe81777, 0xc4210f4d80)
+	/usr/local/go/src/net/unixsock_posix.go:158 +0x32
+net.(*UnixListener).Accept(0xc4211252c0, 0x203070100000101, 0x14, 0xc, 0x14)
+	/usr/local/go/src/net/unixsock.go:229 +0x49
+github.com/hyperhq/hyperd/vendor/github.com/docker/libnetwork.(*controller).acceptClientConnections(0xc420222160, 0xc420647c00, 0x63, 0x1f37fe0, 0xc4211252c0)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/libnetwork/sandbox_externalkey_unix.go:130 +0x43
+created by github.com/hyperhq/hyperd/vendor/github.com/docker/libnetwork.(*controller).startExternalKeyListener
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/libnetwork/sandbox_externalkey_unix.go:124 +0x228
+
+goroutine 22 [chan receive]:
+github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon.(*statsCollector).run(0xc42075aec0)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/stats_collector_unix.go:99 +0xc5
+created by github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon.(*Daemon).newStatsCollector
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/stats_collector_unix.go:38 +0x177
+
+goroutine 23 [chan receive]:
+github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon.(*Daemon).execCommandGC(0xc4207c8180)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/exec.go:237 +0x8d
+created by github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon.NewDaemon
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/daemon.go:819 +0x2151
+
+goroutine 4419 [semacquire, 1 minutes]:
+sync.runtime_notifyListWait(0xc421146a00, 0x1)
+	/usr/local/go/src/runtime/sema.go:267 +0x122
+sync.(*Cond).Wait(0xc4211469f0)
+	/usr/local/go/src/sync/cond.go:57 +0x80
+io.(*pipe).read(0xc4211469c0, 0xc420bbd000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/io/pipe.go:47 +0x102
+io.(*PipeReader).Read(0xc4200b3228, 0xc420bbd000, 0x1000, 0x1000, 0xc4219a4218, 0xc4206e1a00, 0x0)
+	/usr/local/go/src/io/pipe.go:129 +0x4c
+bufio.(*Reader).fill(0xc420703ec8)
+	/usr/local/go/src/bufio/bufio.go:97 +0x10c
+bufio.(*Reader).ReadSlice(0xc420703ec8, 0xc420703d0a, 0x6726c4, 0xc4209dcb50, 0x41bfc1, 0xc42145c19c, 0x0)
+	/usr/local/go/src/bufio/bufio.go:330 +0xb5
+bufio.(*Reader).ReadBytes(0xc420703ec8, 0xa, 0xc42145c180, 0x0, 0x1, 0x1, 0xc420bcde60)
+	/usr/local/go/src/bufio/bufio.go:408 +0x66
+github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).copySrc(0xc421569200, 0x1553267, 0x6, 0x1f2a720, 0xc4200b3228)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:53 +0x122
+created by github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).Run
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:40 +0x119
+
+goroutine 5428 [semacquire]:
+sync.runtime_notifyListWait(0xc42076bb40, 0x0)
+	/usr/local/go/src/runtime/sema.go:267 +0x122
+sync.(*Cond).Wait(0xc42076bb30)
+	/usr/local/go/src/sync/cond.go:57 +0x80
+io.(*pipe).read(0xc42076bb00, 0xc420b4b000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/io/pipe.go:47 +0x102
+io.(*PipeReader).Read(0xc4200b2c98, 0xc420b4b000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/io/pipe.go:129 +0x4c
+bufio.(*Reader).fill(0xc42119ced8)
+	/usr/local/go/src/bufio/bufio.go:97 +0x10c
+bufio.(*Reader).ReadSlice(0xc42119ced8, 0xc420757b0a, 0x29, 0x100000000000000, 0x41bfc1, 0xc421976cdc, 0xc400000000)
+	/usr/local/go/src/bufio/bufio.go:330 +0xb5
+bufio.(*Reader).ReadBytes(0xc42119ced8, 0xa, 0xc421976cc0, 0xc420b4b000, 0x1000, 0x1000, 0xd)
+	/usr/local/go/src/bufio/bufio.go:408 +0x66
+github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).copySrc(0xc4217f0280, 0x1553267, 0x6, 0x1f2a720, 0xc4200b2c98)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:53 +0x122
+created by github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).Run
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:40 +0x119
+
+goroutine 3800 [semacquire, 2 minutes]:
+sync.runtime_notifyListWait(0xc420880400, 0x1)
+	/usr/local/go/src/runtime/sema.go:267 +0x122
+sync.(*Cond).Wait(0xc4208803f0)
+	/usr/local/go/src/sync/cond.go:57 +0x80
+io.(*pipe).read(0xc4208803c0, 0xc4212a0000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/io/pipe.go:47 +0x102
+io.(*PipeReader).Read(0xc421406020, 0xc4212a0000, 0x1000, 0x1000, 0xc421bbe548, 0xc421095520, 0x0)
+	/usr/local/go/src/io/pipe.go:129 +0x4c
+bufio.(*Reader).fill(0xc42139aec8)
+	/usr/local/go/src/bufio/bufio.go:97 +0x10c
+bufio.(*Reader).ReadSlice(0xc42139aec8, 0xc42139ad0a, 0x6726c4, 0xc421956100, 0x41bfc1, 0xc42156225c, 0x0)
+	/usr/local/go/src/bufio/bufio.go:330 +0xb5
+bufio.(*Reader).ReadBytes(0xc42139aec8, 0xa, 0xc421562240, 0x0, 0x1, 0x1, 0xc4219278f0)
+	/usr/local/go/src/bufio/bufio.go:408 +0x66
+github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).copySrc(0xc4214701c0, 0x1553267, 0x6, 0x1f2a720, 0xc421406020)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:53 +0x122
+created by github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).Run
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:40 +0x119
+
+goroutine 2950 [semacquire, 2 minutes]:
+sync.runtime_notifyListWait(0xc421854400, 0x0)
+	/usr/local/go/src/runtime/sema.go:267 +0x122
+sync.(*Cond).Wait(0xc4218543f0)
+	/usr/local/go/src/sync/cond.go:57 +0x80
+io.(*pipe).read(0xc4218543c0, 0xc420a2c000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/io/pipe.go:47 +0x102
+io.(*PipeReader).Read(0xc420024038, 0xc420a2c000, 0x1000, 0x1000, 0x0, 0xc4211b5cc0, 0x42650f)
+	/usr/local/go/src/io/pipe.go:129 +0x4c
+bufio.(*Reader).fill(0xc4211b5ed8)
+	/usr/local/go/src/bufio/bufio.go:97 +0x10c
+bufio.(*Reader).ReadSlice(0xc4211b5ed8, 0x7f01826ed90a, 0x1, 0x101000000000000, 0x41bfc1, 0xc42064c13c, 0xc400000000)
+	/usr/local/go/src/bufio/bufio.go:330 +0xb5
+bufio.(*Reader).ReadBytes(0xc4211b5ed8, 0xa, 0xc42064c120, 0xc420a2c000, 0x1000, 0x1000, 0xe)
+	/usr/local/go/src/bufio/bufio.go:408 +0x66
+github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).copySrc(0xc42146a140, 0x155326d, 0x6, 0x1f2a720, 0xc420024038)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:53 +0x122
+created by github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).Run
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:40 +0x119
+
+goroutine 3221 [semacquire, 2 minutes]:
+sync.runtime_notifyListWait(0xc42114d480, 0x0)
+	/usr/local/go/src/runtime/sema.go:267 +0x122
+sync.(*Cond).Wait(0xc42114d470)
+	/usr/local/go/src/sync/cond.go:57 +0x80
+io.(*pipe).read(0xc42114d440, 0xc4200a0000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/io/pipe.go:47 +0x102
+io.(*PipeReader).Read(0xc4200b2490, 0xc4200a0000, 0x1000, 0x1000, 0x0, 0xc4210ca4c0, 0x42650f)
+	/usr/local/go/src/io/pipe.go:129 +0x4c
+bufio.(*Reader).fill(0xc4210ca6d8)
+	/usr/local/go/src/bufio/bufio.go:97 +0x10c
+bufio.(*Reader).ReadSlice(0xc4210ca6d8, 0x7f01827ac40a, 0x1f46501, 0x10100c4210ca538, 0x41bfc1, 0xc42161cebc, 0xc400000000)
+	/usr/local/go/src/bufio/bufio.go:330 +0xb5
+bufio.(*Reader).ReadBytes(0xc4210ca6d8, 0xa, 0xc42161cea0, 0xc4200a0000, 0x1000, 0x1000, 0xc4210ca668)
+	/usr/local/go/src/bufio/bufio.go:408 +0x66
+github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).copySrc(0xc4209c3500, 0x1553267, 0x6, 0x1f2a720, 0xc4200b2490)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:53 +0x122
+created by github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).Run
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:40 +0x119
+
+goroutine 1883 [semacquire, 3 minutes]:
+sync.runtime_notifyListWait(0xc421ae0e80, 0x0)
+	/usr/local/go/src/runtime/sema.go:267 +0x122
+sync.(*Cond).Wait(0xc421ae0e70)
+	/usr/local/go/src/sync/cond.go:57 +0x80
+io.(*pipe).read(0xc421ae0e40, 0xc4207fe000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/io/pipe.go:47 +0x102
+io.(*PipeReader).Read(0xc420025918, 0xc4207fe000, 0x1000, 0x1000, 0x0, 0xc4210adcc0, 0x42650f)
+	/usr/local/go/src/io/pipe.go:129 +0x4c
+bufio.(*Reader).fill(0xc4210aded8)
+	/usr/local/go/src/bufio/bufio.go:97 +0x10c
+bufio.(*Reader).ReadSlice(0xc4210aded8, 0x7f01826eac0a, 0x9e654c6d9230c701, 0x101cddc54497835, 0x41bfc1, 0xc4210768bc, 0xc400000000)
+	/usr/local/go/src/bufio/bufio.go:330 +0xb5
+bufio.(*Reader).ReadBytes(0xc4210aded8, 0xa, 0xc4210768a0, 0xc4207fe000, 0x1000, 0x1000, 0x0)
+	/usr/local/go/src/bufio/bufio.go:408 +0x66
+github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).copySrc(0xc42074cec0, 0x155326d, 0x6, 0x1f2a720, 0xc420025918)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:53 +0x122
+created by github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).Run
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:40 +0x119
+
+goroutine 4045 [semacquire, 2 minutes]:
+sync.runtime_notifyListWait(0xc4210d1d80, 0x0)
+	/usr/local/go/src/runtime/sema.go:267 +0x122
+sync.(*Cond).Wait(0xc4210d1d70)
+	/usr/local/go/src/sync/cond.go:57 +0x80
+io.(*pipe).read(0xc4210d1d40, 0xc42176e000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/io/pipe.go:47 +0x102
+io.(*PipeReader).Read(0xc4200b3008, 0xc42176e000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/io/pipe.go:129 +0x4c
+bufio.(*Reader).fill(0xc421653ec8)
+	/usr/local/go/src/bufio/bufio.go:97 +0x10c
+bufio.(*Reader).ReadSlice(0xc421653ec8, 0x7f01827d040a, 0x1, 0x101000000000000, 0x41bfc1, 0xc420ae121c, 0xc400000000)
+	/usr/local/go/src/bufio/bufio.go:330 +0xb5
+bufio.(*Reader).ReadBytes(0xc421653ec8, 0xa, 0xc420ae1200, 0xc42176e000, 0x1000, 0x1000, 0xd)
+	/usr/local/go/src/bufio/bufio.go:408 +0x66
+github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).copySrc(0xc421569480, 0x1553267, 0x6, 0x1f2a720, 0xc4200b3008)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:53 +0x122
+created by github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).Run
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:40 +0x119
+
+goroutine 1884 [semacquire, 3 minutes]:
+sync.runtime_notifyListWait(0xc421ae0f40, 0x1)
+	/usr/local/go/src/runtime/sema.go:267 +0x122
+sync.(*Cond).Wait(0xc421ae0f30)
+	/usr/local/go/src/sync/cond.go:57 +0x80
+io.(*pipe).read(0xc421ae0f00, 0xc4207ff000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/io/pipe.go:47 +0x102
+io.(*PipeReader).Read(0xc420025928, 0xc4207ff000, 0x1000, 0x1000, 0xc4206aad58, 0xc4210ba9c0, 0x0)
+	/usr/local/go/src/io/pipe.go:129 +0x4c
+bufio.(*Reader).fill(0xc421263ec8)
+	/usr/local/go/src/bufio/bufio.go:97 +0x10c
+bufio.(*Reader).ReadSlice(0xc421263ec8, 0xc421263d0a, 0x6726c4, 0xc421957f00, 0x41bfc1, 0xc4210768bc, 0x0)
+	/usr/local/go/src/bufio/bufio.go:330 +0xb5
+bufio.(*Reader).ReadBytes(0xc421263ec8, 0xa, 0xc4210768a0, 0x0, 0x1, 0x1, 0xc4210f6cc0)
+	/usr/local/go/src/bufio/bufio.go:408 +0x66
+github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).copySrc(0xc42074cec0, 0x1553267, 0x6, 0x1f2a720, 0xc420025928)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:53 +0x122
+created by github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).Run
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:40 +0x119
+
+goroutine 1599 [semacquire, 3 minutes]:
+sync.runtime_notifyListWait(0xc420880700, 0x0)
+	/usr/local/go/src/runtime/sema.go:267 +0x122
+sync.(*Cond).Wait(0xc4208806f0)
+	/usr/local/go/src/sync/cond.go:57 +0x80
+io.(*pipe).read(0xc4208806c0, 0xc421180000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/io/pipe.go:47 +0x102
+io.(*PipeReader).Read(0xc4200246c0, 0xc421180000, 0x1000, 0x1000, 0x0, 0xc4210b54c0, 0x42650f)
+	/usr/local/go/src/io/pipe.go:129 +0x4c
+bufio.(*Reader).fill(0xc421398ec8)
+	/usr/local/go/src/bufio/bufio.go:97 +0x10c
+bufio.(*Reader).ReadSlice(0xc421398ec8, 0x7f01827d1f0a, 0x1, 0x101000000000000, 0x41bfc1, 0xc4216f315c, 0xc400000000)
+	/usr/local/go/src/bufio/bufio.go:330 +0xb5
+bufio.(*Reader).ReadBytes(0xc421398ec8, 0xa, 0xc4216f3140, 0xc421180000, 0x1000, 0x1000, 0x27fb051dec93519d)
+	/usr/local/go/src/bufio/bufio.go:408 +0x66
+github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).copySrc(0xc42080b640, 0x155326d, 0x6, 0x1f2a720, 0xc4200246c0)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:53 +0x122
+created by github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).Run
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:40 +0x119
+
+goroutine 3220 [semacquire, 2 minutes]:
+sync.runtime_notifyListWait(0xc42114d3c0, 0x2)
+	/usr/local/go/src/runtime/sema.go:267 +0x122
+sync.(*Cond).Wait(0xc42114d3b0)
+	/usr/local/go/src/sync/cond.go:57 +0x80
+io.(*pipe).read(0xc42114d380, 0xc421113000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/io/pipe.go:47 +0x102
+io.(*PipeReader).Read(0xc4200b2480, 0xc421113000, 0x1000, 0x1000, 0xc421b0a428, 0xc4210c4340, 0x0)
+	/usr/local/go/src/io/pipe.go:129 +0x4c
+bufio.(*Reader).fill(0xc4219c0ec8)
+	/usr/local/go/src/bufio/bufio.go:97 +0x10c
+bufio.(*Reader).ReadSlice(0xc4219c0ec8, 0xc4219c0d0a, 0x6726c4, 0xc421956f10, 0x41bfc1, 0xc42161cebc, 0x0)
+	/usr/local/go/src/bufio/bufio.go:330 +0xb5
+bufio.(*Reader).ReadBytes(0xc4219c0ec8, 0xa, 0xc42161cea0, 0x0, 0x1, 0x1, 0xc421999580)
+	/usr/local/go/src/bufio/bufio.go:408 +0x66
+github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).copySrc(0xc4209c3500, 0x155326d, 0x6, 0x1f2a720, 0xc4200b2480)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:53 +0x122
+created by github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).Run
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:40 +0x119
+
+goroutine 3483 [semacquire, 2 minutes]:
+sync.runtime_notifyListWait(0xc421854100, 0x10f)
+	/usr/local/go/src/runtime/sema.go:267 +0x122
+sync.(*Cond).Wait(0xc4218540f0)
+	/usr/local/go/src/sync/cond.go:57 +0x80
+io.(*pipe).read(0xc4218540c0, 0xc4216a2c00, 0x200, 0x200, 0x0, 0x0, 0x0)
+	/usr/local/go/src/io/pipe.go:47 +0x102
+io.(*PipeReader).Read(0xc420024478, 0xc4216a2c00, 0x200, 0x200, 0x200, 0x200, 0x0)
+	/usr/local/go/src/io/pipe.go:129 +0x4c
+github.com/hyperhq/hyperd/serverrpc.(*ServerRPC).ImagePull.func1(0xc420024478, 0xc421211868, 0x1f3f260, 0xc421211760)
+	/root/go-project/src/github.com/hyperhq/hyperd/serverrpc/images.go:67 +0xb7
+created by github.com/hyperhq/hyperd/serverrpc.(*ServerRPC).ImagePull
+	/root/go-project/src/github.com/hyperhq/hyperd/serverrpc/images.go:86 +0x281
+
+goroutine 3799 [semacquire, 2 minutes]:
+sync.runtime_notifyListWait(0xc420880280, 0x0)
+	/usr/local/go/src/runtime/sema.go:267 +0x122
+sync.(*Cond).Wait(0xc420880270)
+	/usr/local/go/src/sync/cond.go:57 +0x80
+io.(*pipe).read(0xc420880240, 0xc421112000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/io/pipe.go:47 +0x102
+io.(*PipeReader).Read(0xc421406010, 0xc421112000, 0x1000, 0x1000, 0x0, 0xc4210a5cc0, 0x42650f)
+	/usr/local/go/src/io/pipe.go:129 +0x4c
+bufio.(*Reader).fill(0xc4210a5ed8)
+	/usr/local/go/src/bufio/bufio.go:97 +0x10c
+bufio.(*Reader).ReadSlice(0xc4210a5ed8, 0x7f01827aef0a, 0xc420010201, 0x10100000155066c, 0x41bfc1, 0xc42156225c, 0xc400000000)
+	/usr/local/go/src/bufio/bufio.go:330 +0xb5
+bufio.(*Reader).ReadBytes(0xc4210a5ed8, 0xa, 0xc421562240, 0xc421112000, 0x1000, 0x1000, 0x4)
+	/usr/local/go/src/bufio/bufio.go:408 +0x66
+github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).copySrc(0xc4214701c0, 0x155326d, 0x6, 0x1f2a720, 0xc421406010)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:53 +0x122
+created by github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).Run
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:40 +0x119
+
+goroutine 2168 [semacquire, 3 minutes]:
+sync.runtime_notifyListWait(0xc4210d0280, 0x2)
+	/usr/local/go/src/runtime/sema.go:267 +0x122
+sync.(*Cond).Wait(0xc4210d0270)
+	/usr/local/go/src/sync/cond.go:57 +0x80
+io.(*pipe).read(0xc4210d0240, 0xc4212a1000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/io/pipe.go:47 +0x102
+io.(*PipeReader).Read(0xc421406e78, 0xc4212a1000, 0x1000, 0x1000, 0xc421c5a368, 0xc4210c5520, 0x0)
+	/usr/local/go/src/io/pipe.go:129 +0x4c
+bufio.(*Reader).fill(0xc421654ec8)
+	/usr/local/go/src/bufio/bufio.go:97 +0x10c
+bufio.(*Reader).ReadSlice(0xc421654ec8, 0xc421654d0a, 0x6726c4, 0xc42101ed30, 0x41bfc1, 0xc42168401c, 0x0)
+	/usr/local/go/src/bufio/bufio.go:330 +0xb5
+bufio.(*Reader).ReadBytes(0xc421654ec8, 0xa, 0xc421684000, 0x0, 0x1, 0x1, 0xc421163d98)
+	/usr/local/go/src/bufio/bufio.go:408 +0x66
+github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).copySrc(0xc421568b80, 0x155326d, 0x6, 0x1f2a720, 0xc421406e78)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:53 +0x122
+created by github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).Run
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:40 +0x119
+
+goroutine 683 [semacquire, 3 minutes]:
+sync.runtime_notifyListWait(0xc4209f6280, 0x2d)
+	/usr/local/go/src/runtime/sema.go:267 +0x122
+sync.(*Cond).Wait(0xc4209f6270)
+	/usr/local/go/src/sync/cond.go:57 +0x80
+io.(*pipe).read(0xc4209f6240, 0xc4209ef000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/io/pipe.go:47 +0x102
+io.(*PipeReader).Read(0xc4201c6aa8, 0xc4209ef000, 0x1000, 0x1000, 0xc4209f4728, 0xc4210c56c0, 0x0)
+	/usr/local/go/src/io/pipe.go:129 +0x4c
+bufio.(*Reader).fill(0xc421656ec8)
+	/usr/local/go/src/bufio/bufio.go:97 +0x10c
+bufio.(*Reader).ReadSlice(0xc421656ec8, 0xc421656d0a, 0x6726c4, 0xc420acec40, 0x41bfc1, 0xc42156267c, 0x0)
+	/usr/local/go/src/bufio/bufio.go:330 +0xb5
+bufio.(*Reader).ReadBytes(0xc421656ec8, 0xa, 0xc421562660, 0x0, 0x1, 0x1, 0xc4209c30c0)
+	/usr/local/go/src/bufio/bufio.go:408 +0x66
+github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).copySrc(0xc421067340, 0x155326d, 0x6, 0x1f2a720, 0xc4201c6aa8)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:53 +0x122
+created by github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).Run
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:40 +0x119
+
+goroutine 2537 [semacquire, 2 minutes]:
+sync.runtime_notifyListWait(0xc4217aa400, 0x0)
+	/usr/local/go/src/runtime/sema.go:267 +0x122
+sync.(*Cond).Wait(0xc4217aa3f0)
+	/usr/local/go/src/sync/cond.go:57 +0x80
+io.(*pipe).read(0xc4217aa3c0, 0xc421903000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/io/pipe.go:47 +0x102
+io.(*PipeReader).Read(0xc420024078, 0xc421903000, 0x1000, 0x1000, 0x0, 0xc42119dcc0, 0x47e77a)
+	/usr/local/go/src/io/pipe.go:129 +0x4c
+bufio.(*Reader).fill(0xc42119ded8)
+	/usr/local/go/src/bufio/bufio.go:97 +0x10c
+bufio.(*Reader).ReadSlice(0xc42119ded8, 0xa, 0x0, 0x100000000000000, 0x41bfc1, 0xc42064c1fc, 0xc400000000)
+	/usr/local/go/src/bufio/bufio.go:330 +0xb5
+bufio.(*Reader).ReadBytes(0xc42119ded8, 0xa, 0xc42064c1e0, 0xc421903000, 0x1000, 0x1000, 0x9)
+	/usr/local/go/src/bufio/bufio.go:408 +0x66
+github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).copySrc(0xc42146a8c0, 0x1553267, 0x6, 0x1f2a720, 0xc420024078)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:53 +0x122
+created by github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).Run
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:40 +0x119
+
+goroutine 1598 [semacquire, 3 minutes]:
+sync.runtime_notifyListWait(0xc4208807c0, 0x0)
+	/usr/local/go/src/runtime/sema.go:267 +0x122
+sync.(*Cond).Wait(0xc4208807b0)
+	/usr/local/go/src/sync/cond.go:57 +0x80
+io.(*pipe).read(0xc420880780, 0xc421181000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/io/pipe.go:47 +0x102
+io.(*PipeReader).Read(0xc4200246d0, 0xc421181000, 0x1000, 0x1000, 0x2, 0x2, 0x1015636f8)
+	/usr/local/go/src/io/pipe.go:129 +0x4c
+bufio.(*Reader).fill(0xc421394ec8)
+	/usr/local/go/src/bufio/bufio.go:97 +0x10c
+bufio.(*Reader).ReadSlice(0xc421394ec8, 0xa, 0x0, 0x100000000000000, 0x41bfc1, 0xc4216f315c, 0xc400000000)
+	/usr/local/go/src/bufio/bufio.go:330 +0xb5
+bufio.(*Reader).ReadBytes(0xc421394ec8, 0xa, 0xc4216f3140, 0xc421181000, 0x1000, 0x1000, 0x7)
+	/usr/local/go/src/bufio/bufio.go:408 +0x66
+github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).copySrc(0xc42080b640, 0x1553267, 0x6, 0x1f2a720, 0xc4200246d0)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:53 +0x122
+created by github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).Run
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:40 +0x119
+
+goroutine 1147 [semacquire, 4 minutes]:
+sync.runtime_notifyListWait(0xc421147540, 0x3)
+	/usr/local/go/src/runtime/sema.go:267 +0x122
+sync.(*Cond).Wait(0xc421147530)
+	/usr/local/go/src/sync/cond.go:57 +0x80
+io.(*pipe).read(0xc421147500, 0xc421b43000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/io/pipe.go:47 +0x102
+io.(*PipeReader).Read(0xc4201c7990, 0xc421b43000, 0x1000, 0x1000, 0xc4209dbbc8, 0xc42118e1a0, 0x0)
+	/usr/local/go/src/io/pipe.go:129 +0x4c
+bufio.(*Reader).fill(0xc421260ec8)
+	/usr/local/go/src/bufio/bufio.go:97 +0x10c
+bufio.(*Reader).ReadSlice(0xc421260ec8, 0xc421260d0a, 0x6726c4, 0xc42106a970, 0x41bfc1, 0xc4210179fc, 0x0)
+	/usr/local/go/src/bufio/bufio.go:330 +0xb5
+bufio.(*Reader).ReadBytes(0xc421260ec8, 0xa, 0xc4210179e0, 0x0, 0x1, 0x1, 0xc420a5d9c0)
+	/usr/local/go/src/bufio/bufio.go:408 +0x66
+github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).copySrc(0xc420ad2480, 0x155326d, 0x6, 0x1f2a720, 0xc4201c7990)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:53 +0x122
+created by github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).Run
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:40 +0x119
+
+goroutine 1148 [semacquire, 4 minutes]:
+sync.runtime_notifyListWait(0xc421147600, 0x0)
+	/usr/local/go/src/runtime/sema.go:267 +0x122
+sync.(*Cond).Wait(0xc4211475f0)
+	/usr/local/go/src/sync/cond.go:57 +0x80
+io.(*pipe).read(0xc4211475c0, 0xc421b42000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/io/pipe.go:47 +0x102
+io.(*PipeReader).Read(0xc4201c79a0, 0xc421b42000, 0x1000, 0x1000, 0x0, 0xc4211a44c0, 0x42650f)
+	/usr/local/go/src/io/pipe.go:129 +0x4c
+bufio.(*Reader).fill(0xc4211a46d8)
+	/usr/local/go/src/bufio/bufio.go:97 +0x10c
+bufio.(*Reader).ReadSlice(0xc4211a46d8, 0x7f01826e910a, 0xc421246e01, 0x101000000000000, 0x41bfc1, 0xc4210179fc, 0xc400000000)
+	/usr/local/go/src/bufio/bufio.go:330 +0xb5
+bufio.(*Reader).ReadBytes(0xc4211a46d8, 0xa, 0xc4210179e0, 0xc421b42000, 0x1000, 0x1000, 0x2)
+	/usr/local/go/src/bufio/bufio.go:408 +0x66
+github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).copySrc(0xc420ad2480, 0x1553267, 0x6, 0x1f2a720, 0xc4201c79a0)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:53 +0x122
+created by github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).Run
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:40 +0x119
+
+goroutine 657 [semacquire, 5 minutes]:
+sync.runtime_notifyListWait(0xc42076ae80, 0x0)
+	/usr/local/go/src/runtime/sema.go:267 +0x122
+sync.(*Cond).Wait(0xc42076ae70)
+	/usr/local/go/src/sync/cond.go:57 +0x80
+io.(*pipe).read(0xc42076ae40, 0xc420a2d000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/io/pipe.go:47 +0x102
+io.(*PipeReader).Read(0xc421406dd8, 0xc420a2d000, 0x1000, 0x1000, 0xc4211b0f98, 0xa4f0b0, 0x1558c7e)
+	/usr/local/go/src/io/pipe.go:129 +0x4c
+bufio.(*Reader).fill(0xc4211b0ed8)
+	/usr/local/go/src/bufio/bufio.go:97 +0x10c
+bufio.(*Reader).ReadSlice(0xc4211b0ed8, 0xa, 0x0, 0x100000000000000, 0x41bfc1, 0xc42064c61c, 0xc400000000)
+	/usr/local/go/src/bufio/bufio.go:330 +0xb5
+bufio.(*Reader).ReadBytes(0xc4211b0ed8, 0xa, 0xc42064c600, 0xc420a2d000, 0x1000, 0x1000, 0x0)
+	/usr/local/go/src/bufio/bufio.go:408 +0x66
+github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).copySrc(0xc42074d680, 0x155326d, 0x6, 0x1f2a720, 0xc421406dd8)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:53 +0x122
+created by github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).Run
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:40 +0x119
+
+goroutine 4044 [semacquire, 2 minutes]:
+sync.runtime_notifyListWait(0xc4210d1cc0, 0x2)
+	/usr/local/go/src/runtime/sema.go:267 +0x122
+sync.(*Cond).Wait(0xc4210d1cb0)
+	/usr/local/go/src/sync/cond.go:57 +0x80
+io.(*pipe).read(0xc4210d1c80, 0xc421277000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/io/pipe.go:47 +0x102
+io.(*PipeReader).Read(0xc4200b2ff8, 0xc421277000, 0x1000, 0x1000, 0xc420b97178, 0xc42118f860, 0x0)
+	/usr/local/go/src/io/pipe.go:129 +0x4c
+bufio.(*Reader).fill(0xc421030ec8)
+	/usr/local/go/src/bufio/bufio.go:97 +0x10c
+bufio.(*Reader).ReadSlice(0xc421030ec8, 0xc421030d0a, 0x6726c4, 0xc420654b50, 0x41bfc1, 0xc420ae121c, 0x0)
+	/usr/local/go/src/bufio/bufio.go:330 +0xb5
+bufio.(*Reader).ReadBytes(0xc421030ec8, 0xa, 0xc420ae1200, 0x0, 0x1, 0x1, 0xc42075afc0)
+	/usr/local/go/src/bufio/bufio.go:408 +0x66
+github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).copySrc(0xc421569480, 0x155326d, 0x6, 0x1f2a720, 0xc4200b2ff8)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:53 +0x122
+created by github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).Run
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:40 +0x119
+
+goroutine 912 [semacquire, 4 minutes]:
+sync.runtime_notifyListWait(0xc42076a580, 0x0)
+	/usr/local/go/src/runtime/sema.go:267 +0x122
+sync.(*Cond).Wait(0xc42076a570)
+	/usr/local/go/src/sync/cond.go:57 +0x80
+io.(*pipe).read(0xc42076a540, 0xc4209ed000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/io/pipe.go:47 +0x102
+io.(*PipeReader).Read(0xc4201c63f8, 0xc4209ed000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/io/pipe.go:129 +0x4c
+bufio.(*Reader).fill(0xc420705ec8)
+	/usr/local/go/src/bufio/bufio.go:97 +0x10c
+bufio.(*Reader).ReadSlice(0xc420705ec8, 0xa, 0x0, 0x100000000000000, 0x41bfc1, 0xc42161dc3c, 0xc400000000)
+	/usr/local/go/src/bufio/bufio.go:330 +0xb5
+bufio.(*Reader).ReadBytes(0xc420705ec8, 0xa, 0xc42161dc20, 0xc4209ed000, 0x1000, 0x1000, 0x0)
+	/usr/local/go/src/bufio/bufio.go:408 +0x66
+github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).copySrc(0xc4218a9380, 0x1553267, 0x6, 0x1f2a720, 0xc4201c63f8)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:53 +0x122
+created by github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).Run
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:40 +0x119
+
+goroutine 911 [semacquire, 4 minutes]:
+sync.runtime_notifyListWait(0xc42076a400, 0x2)
+	/usr/local/go/src/runtime/sema.go:267 +0x122
+sync.(*Cond).Wait(0xc42076a3f0)
+	/usr/local/go/src/sync/cond.go:57 +0x80
+io.(*pipe).read(0xc42076a3c0, 0xc4209ec000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/io/pipe.go:47 +0x102
+io.(*PipeReader).Read(0xc4201c63e8, 0xc4209ec000, 0x1000, 0x1000, 0xc4214f4a88, 0xc42118fba0, 0x0)
+	/usr/local/go/src/io/pipe.go:129 +0x4c
+bufio.(*Reader).fill(0xc421659ec8)
+	/usr/local/go/src/bufio/bufio.go:97 +0x10c
+bufio.(*Reader).ReadSlice(0xc421659ec8, 0xc421659d0a, 0x6726c4, 0xc4218035a0, 0x41bfc1, 0xc42161dc3c, 0x0)
+	/usr/local/go/src/bufio/bufio.go:330 +0xb5
+bufio.(*Reader).ReadBytes(0xc421659ec8, 0xa, 0xc42161dc20, 0x0, 0x1, 0x1, 0xc4207f5540)
+	/usr/local/go/src/bufio/bufio.go:408 +0x66
+github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).copySrc(0xc4218a9380, 0x155326d, 0x6, 0x1f2a720, 0xc4201c63e8)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:53 +0x122
+created by github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).Run
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:40 +0x119
+
+goroutine 5427 [semacquire]:
+sync.runtime_notifyListWait(0xc42076ba80, 0x0)
+	/usr/local/go/src/runtime/sema.go:267 +0x122
+sync.(*Cond).Wait(0xc42076ba70)
+	/usr/local/go/src/sync/cond.go:57 +0x80
+io.(*pipe).read(0xc42076ba40, 0xc420b4a000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/io/pipe.go:47 +0x102
+io.(*PipeReader).Read(0xc4200b2c88, 0xc420b4a000, 0x1000, 0x1000, 0x0, 0xc42119a4c0, 0x42650f)
+	/usr/local/go/src/io/pipe.go:129 +0x4c
+bufio.(*Reader).fill(0xc42119a6d8)
+	/usr/local/go/src/bufio/bufio.go:97 +0x10c
+bufio.(*Reader).ReadSlice(0xc42119a6d8, 0x7f01827ac10a, 0x1, 0x101000000000002, 0x41bfc1, 0xc421976cdc, 0xc400000000)
+	/usr/local/go/src/bufio/bufio.go:330 +0xb5
+bufio.(*Reader).ReadBytes(0xc42119a6d8, 0xa, 0xc421976cc0, 0xc420b4a000, 0x1000, 0x1000, 0x35d697e201000000)
+	/usr/local/go/src/bufio/bufio.go:408 +0x66
+github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).copySrc(0xc4217f0280, 0x155326d, 0x6, 0x1f2a720, 0xc4200b2c88)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:53 +0x122
+created by github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).Run
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:40 +0x119
+
+goroutine 257 [chan send]:
+github.com/hyperhq/hyperd/server.(*Server).Wait(0xc4206dd740, 0xc4206dd860)
+	/root/go-project/src/github.com/hyperhq/hyperd/server/server.go:222 +0x133
+created by main.mainDaemon
+	/root/go-project/src/github.com/hyperhq/hyperd/hyperd.go:182 +0x609
+
+goroutine 2536 [semacquire, 2 minutes]:
+sync.runtime_notifyListWait(0xc4217aa340, 0x1)
+	/usr/local/go/src/runtime/sema.go:267 +0x122
+sync.(*Cond).Wait(0xc4217aa330)
+	/usr/local/go/src/sync/cond.go:57 +0x80
+io.(*pipe).read(0xc4217aa300, 0xc421902000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/io/pipe.go:47 +0x102
+io.(*PipeReader).Read(0xc420024060, 0xc421902000, 0x1000, 0x1000, 0xc421bbe908, 0xc4211a2340, 0x0)
+	/usr/local/go/src/io/pipe.go:129 +0x4c
+bufio.(*Reader).fill(0xc42139bec8)
+	/usr/local/go/src/bufio/bufio.go:97 +0x10c
+bufio.(*Reader).ReadSlice(0xc42139bec8, 0xc42139bd0a, 0x6726c4, 0xc4209dc100, 0x41bfc1, 0xc42064c1fc, 0x0)
+	/usr/local/go/src/bufio/bufio.go:330 +0xb5
+bufio.(*Reader).ReadBytes(0xc42139bec8, 0xa, 0xc42064c1e0, 0x0, 0x1, 0x1, 0xc421979b80)
+	/usr/local/go/src/bufio/bufio.go:408 +0x66
+github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).copySrc(0xc42146a8c0, 0x155326d, 0x6, 0x1f2a720, 0xc420024060)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:53 +0x122
+created by github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).Run
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:40 +0x119
+
+goroutine 684 [semacquire, 5 minutes]:
+sync.runtime_notifyListWait(0xc4209f6340, 0x0)
+	/usr/local/go/src/runtime/sema.go:267 +0x122
+sync.(*Cond).Wait(0xc4209f6330)
+	/usr/local/go/src/sync/cond.go:57 +0x80
+io.(*pipe).read(0xc4209f6300, 0xc4209fc000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/io/pipe.go:47 +0x102
+io.(*PipeReader).Read(0xc4201c6ac0, 0xc4209fc000, 0x1000, 0x1000, 0x0, 0xc4211aecc0, 0x42650f)
+	/usr/local/go/src/io/pipe.go:129 +0x4c
+bufio.(*Reader).fill(0xc4211aeed8)
+	/usr/local/go/src/bufio/bufio.go:97 +0x10c
+bufio.(*Reader).ReadSlice(0xc4211aeed8, 0x7f01827c570a, 0x1, 0x101000000000000, 0x41bfc1, 0xc42156267c, 0xc400000000)
+	/usr/local/go/src/bufio/bufio.go:330 +0xb5
+bufio.(*Reader).ReadBytes(0xc4211aeed8, 0xa, 0xc421562660, 0xc4209fc000, 0x1000, 0x1000, 0x0)
+	/usr/local/go/src/bufio/bufio.go:408 +0x66
+github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).copySrc(0xc421067340, 0x1553267, 0x6, 0x1f2a720, 0xc4201c6ac0)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:53 +0x122
+created by github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).Run
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:40 +0x119
+
+goroutine 658 [semacquire, 5 minutes]:
+sync.runtime_notifyListWait(0xc42076af40, 0x1)
+	/usr/local/go/src/runtime/sema.go:267 +0x122
+sync.(*Cond).Wait(0xc42076af30)
+	/usr/local/go/src/sync/cond.go:57 +0x80
+io.(*pipe).read(0xc42076af00, 0xc4215b4000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/io/pipe.go:47 +0x102
+io.(*PipeReader).Read(0xc421406de8, 0xc4215b4000, 0x1000, 0x1000, 0xc42101d118, 0xc4211a31e0, 0x0)
+	/usr/local/go/src/io/pipe.go:129 +0x4c
+bufio.(*Reader).fill(0xc421652ec8)
+	/usr/local/go/src/bufio/bufio.go:97 +0x10c
+bufio.(*Reader).ReadSlice(0xc421652ec8, 0xc421652d0a, 0x6726c4, 0xc4206541f0, 0x41bfc1, 0xc42064c61c, 0x0)
+	/usr/local/go/src/bufio/bufio.go:330 +0xb5
+bufio.(*Reader).ReadBytes(0xc421652ec8, 0xa, 0xc42064c600, 0x0, 0x1, 0x1, 0xc42142e360)
+	/usr/local/go/src/bufio/bufio.go:408 +0x66
+github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).copySrc(0xc42074d680, 0x1553267, 0x6, 0x1f2a720, 0xc421406de8)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:53 +0x122
+created by github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).Run
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:40 +0x119
+
+goroutine 5126 [semacquire, 1 minutes]:
+sync.runtime_notifyListWait(0xc420881540, 0x0)
+	/usr/local/go/src/runtime/sema.go:267 +0x122
+sync.(*Cond).Wait(0xc420881530)
+	/usr/local/go/src/sync/cond.go:57 +0x80
+io.(*pipe).read(0xc420881500, 0xc4216ef000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/io/pipe.go:47 +0x102
+io.(*PipeReader).Read(0xc4200b27b0, 0xc4216ef000, 0x1000, 0x1000, 0x0, 0xc4211b54c0, 0x47e77a)
+	/usr/local/go/src/io/pipe.go:129 +0x4c
+bufio.(*Reader).fill(0xc4211b56d8)
+	/usr/local/go/src/bufio/bufio.go:97 +0x10c
+bufio.(*Reader).ReadSlice(0xc4211b56d8, 0xa, 0x0, 0x100000000000000, 0x41bfc1, 0xc42123043c, 0xc400000000)
+	/usr/local/go/src/bufio/bufio.go:330 +0xb5
+bufio.(*Reader).ReadBytes(0xc4211b56d8, 0xa, 0xc421230420, 0xc4216ef000, 0x1000, 0x1000, 0x7)
+	/usr/local/go/src/bufio/bufio.go:408 +0x66
+github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).copySrc(0xc420ad24c0, 0x1553267, 0x6, 0x1f2a720, 0xc4200b27b0)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:53 +0x122
+created by github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).Run
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:40 +0x119
+
+goroutine 3734 [semacquire, 2 minutes]:
+sync.runtime_notifyListWait(0xc42076a640, 0x0)
+	/usr/local/go/src/runtime/sema.go:267 +0x122
+sync.(*Cond).Wait(0xc42076a630)
+	/usr/local/go/src/sync/cond.go:57 +0x80
+io.(*pipe).read(0xc42076a600, 0xc421a9f000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/io/pipe.go:47 +0x102
+io.(*PipeReader).Read(0xc4200b2f80, 0xc421a9f000, 0x1000, 0x1000, 0x15174a0, 0x0, 0xc421a32370)
+	/usr/local/go/src/io/pipe.go:129 +0x4c
+bufio.(*Reader).fill(0xc4210beed8)
+	/usr/local/go/src/bufio/bufio.go:97 +0x10c
+bufio.(*Reader).ReadSlice(0xc4210beed8, 0xa, 0xc4210bed18, 0x100000000423fcb, 0x41bfc1, 0xc4207c4fdc, 0xc400000000)
+	/usr/local/go/src/bufio/bufio.go:330 +0xb5
+bufio.(*Reader).ReadBytes(0xc4210beed8, 0xa, 0xc4207c4fc0, 0xc421a9f000, 0x1000, 0x1000, 0x0)
+	/usr/local/go/src/bufio/bufio.go:408 +0x66
+github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).copySrc(0xc42121b940, 0x155326d, 0x6, 0x1f2a720, 0xc4200b2f80)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:53 +0x122
+created by github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).Run
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:40 +0x119
+
+goroutine 5127 [semacquire, 1 minutes]:
+sync.runtime_notifyListWait(0xc420881480, 0x2)
+	/usr/local/go/src/runtime/sema.go:267 +0x122
+sync.(*Cond).Wait(0xc420881470)
+	/usr/local/go/src/sync/cond.go:57 +0x80
+io.(*pipe).read(0xc420881440, 0xc4216ee000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/io/pipe.go:47 +0x102
+io.(*PipeReader).Read(0xc4200b27a0, 0xc4216ee000, 0x1000, 0x1000, 0xc42169b358, 0xc4211ad040, 0x0)
+	/usr/local/go/src/io/pipe.go:129 +0x4c
+bufio.(*Reader).fill(0xc421657ec8)
+	/usr/local/go/src/bufio/bufio.go:97 +0x10c
+bufio.(*Reader).ReadSlice(0xc421657ec8, 0xc421657d0a, 0x6726c4, 0xc421803a50, 0x41bfc1, 0xc42123043c, 0x0)
+	/usr/local/go/src/bufio/bufio.go:330 +0xb5
+bufio.(*Reader).ReadBytes(0xc421657ec8, 0xa, 0xc421230420, 0x0, 0x1, 0x1, 0xc42169bef0)
+	/usr/local/go/src/bufio/bufio.go:408 +0x66
+github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).copySrc(0xc420ad24c0, 0x155326d, 0x6, 0x1f2a720, 0xc4200b27a0)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:53 +0x122
+created by github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).Run
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:40 +0x119
+
+goroutine 3735 [semacquire, 2 minutes]:
+sync.runtime_notifyListWait(0xc42076a700, 0x0)
+	/usr/local/go/src/runtime/sema.go:267 +0x122
+sync.(*Cond).Wait(0xc42076a6f0)
+	/usr/local/go/src/sync/cond.go:57 +0x80
+io.(*pipe).read(0xc42076a6c0, 0xc421b9a000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/io/pipe.go:47 +0x102
+io.(*PipeReader).Read(0xc4200b2fa0, 0xc421b9a000, 0x1000, 0x1000, 0x0, 0xc4210c3cc0, 0x42650f)
+	/usr/local/go/src/io/pipe.go:129 +0x4c
+bufio.(*Reader).fill(0xc4210c3ed8)
+	/usr/local/go/src/bufio/bufio.go:97 +0x10c
+bufio.(*Reader).ReadSlice(0xc4210c3ed8, 0x7f01827b190a, 0x1, 0x101000000000000, 0x41bfc1, 0xc4207c4fdc, 0xc400000000)
+	/usr/local/go/src/bufio/bufio.go:330 +0xb5
+bufio.(*Reader).ReadBytes(0xc4210c3ed8, 0xa, 0xc4207c4fc0, 0xc421b9a000, 0x1000, 0x1000, 0xd)
+	/usr/local/go/src/bufio/bufio.go:408 +0x66
+github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).copySrc(0xc42121b940, 0x1553267, 0x6, 0x1f2a720, 0xc4200b2fa0)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:53 +0x122
+created by github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).Run
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:40 +0x119
+
+goroutine 2951 [semacquire, 2 minutes]:
+sync.runtime_notifyListWait(0xc4218544c0, 0x1)
+	/usr/local/go/src/runtime/sema.go:267 +0x122
+sync.(*Cond).Wait(0xc4218544b0)
+	/usr/local/go/src/sync/cond.go:57 +0x80
+io.(*pipe).read(0xc421854480, 0xc4219b5000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/io/pipe.go:47 +0x102
+io.(*PipeReader).Read(0xc420024068, 0xc4219b5000, 0x1000, 0x1000, 0xc421926308, 0xc420890d00, 0x0)
+	/usr/local/go/src/io/pipe.go:129 +0x4c
+bufio.(*Reader).fill(0xc421655ec8)
+	/usr/local/go/src/bufio/bufio.go:97 +0x10c
+bufio.(*Reader).ReadSlice(0xc421655ec8, 0xc421655d0a, 0x6726c4, 0xc42151e100, 0x41bfc1, 0xc42064c13c, 0x0)
+	/usr/local/go/src/bufio/bufio.go:330 +0xb5
+bufio.(*Reader).ReadBytes(0xc421655ec8, 0xa, 0xc42064c120, 0x0, 0x1, 0x1, 0xc4216fe9c0)
+	/usr/local/go/src/bufio/bufio.go:408 +0x66
+github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).copySrc(0xc42146a140, 0x1553267, 0x6, 0x1f2a720, 0xc420024068)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:53 +0x122
+created by github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).Run
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:40 +0x119
+
+goroutine 2169 [semacquire, 3 minutes]:
+sync.runtime_notifyListWait(0xc4210d0340, 0x0)
+	/usr/local/go/src/runtime/sema.go:267 +0x122
+sync.(*Cond).Wait(0xc4210d0330)
+	/usr/local/go/src/sync/cond.go:57 +0x80
+io.(*pipe).read(0xc4210d0300, 0xc4219b4000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/io/pipe.go:47 +0x102
+io.(*PipeReader).Read(0xc421406e88, 0xc4219b4000, 0x1000, 0x1000, 0x0, 0xc4211a4cc0, 0x42650f)
+	/usr/local/go/src/io/pipe.go:129 +0x4c
+bufio.(*Reader).fill(0xc4211a4ed8)
+	/usr/local/go/src/bufio/bufio.go:97 +0x10c
+bufio.(*Reader).ReadSlice(0xc4211a4ed8, 0x7f01826ec90a, 0x12f5101, 0x10100c4211a4dc8, 0x41bfc1, 0xc42168401c, 0xc400000000)
+	/usr/local/go/src/bufio/bufio.go:330 +0xb5
+bufio.(*Reader).ReadBytes(0xc4211a4ed8, 0xa, 0xc421684000, 0xc4219b4000, 0x1000, 0x1000, 0xc42069be60)
+	/usr/local/go/src/bufio/bufio.go:408 +0x66
+github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).copySrc(0xc421568b80, 0x1553267, 0x6, 0x1f2a720, 0xc421406e88)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:53 +0x122
+created by github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).Run
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:40 +0x119
+
+goroutine 4418 [semacquire, 1 minutes]:
+sync.runtime_notifyListWait(0xc421146940, 0x0)
+	/usr/local/go/src/runtime/sema.go:267 +0x122
+sync.(*Cond).Wait(0xc421146930)
+	/usr/local/go/src/sync/cond.go:57 +0x80
+io.(*pipe).read(0xc421146900, 0xc420bbc000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/io/pipe.go:47 +0x102
+io.(*PipeReader).Read(0xc4200b3218, 0xc420bbc000, 0x1000, 0x1000, 0x0, 0xc4211a1cc0, 0x42650f)
+	/usr/local/go/src/io/pipe.go:129 +0x4c
+bufio.(*Reader).fill(0xc4211a1ed8)
+	/usr/local/go/src/bufio/bufio.go:97 +0x10c
+bufio.(*Reader).ReadSlice(0xc4211a1ed8, 0x7f01826e9b0a, 0x1, 0x101000000000000, 0x41bfc1, 0xc42145c19c, 0xc400000000)
+	/usr/local/go/src/bufio/bufio.go:330 +0xb5
+bufio.(*Reader).ReadBytes(0xc4211a1ed8, 0xa, 0xc42145c180, 0xc420bbc000, 0x1000, 0x1000, 0xe)
+	/usr/local/go/src/bufio/bufio.go:408 +0x66
+github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).copySrc(0xc421569200, 0x155326d, 0x6, 0x1f2a720, 0xc4200b3218)
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:53 +0x122
+created by github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger.(*Copier).Run
+	/root/go-project/src/github.com/hyperhq/hyperd/vendor/github.com/docker/docker/daemon/logger/copier.go:40 +0x119
