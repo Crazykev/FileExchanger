@@ -1,0 +1,6 @@
+Log file created at: 2017/03/21 06:35:26
+Running on machine: frakti-e2e
+Binary: Built with gc go1.7.3 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+E0321 06:35:26.729452   31507 container.go:125] Stop container a5a9bc2825c4fb6c013d10872c6e6c79970edfaf0b4f9f01c5f509599488bc74 failed: rpc error: code = 2 desc = chan broken while waiting containers: map[string]bool{"a5a9bc2825c4fb6c013d10872c6e6c79970edfaf0b4f9f01c5f509599488bc74":true}
+E0321 06:35:26.731475   31507 manager.go:287] StopContainer from hyper runtime service failed: rpc error: code = 2 desc = chan broken while waiting containers: map[string]bool{"a5a9bc2825c4fb6c013d10872c6e6c79970edfaf0b4f9f01c5f509599488bc74":true}
