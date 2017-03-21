@@ -1,0 +1,195 @@
+Log file created at: 2017/03/21 06:34:01
+Running on machine: frakti-e2e
+Binary: Built with gc go1.7.3 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0321 06:34:01.650143   31507 alternativeruntime.go:52] Initialize alternative runtime: docker runtime
+I0321 06:34:01.650837   31507 docker.go:364] Connecting to docker on unix:///var/run/docker.sock
+I0321 06:34:01.650849   31507 docker.go:384] Start docker client with request timeout=2m0s
+I0321 06:34:01.716212   31507 plugins.go:180] Loaded network plugin "cni"
+I0321 06:34:01.716231   31507 docker_service.go:136] Docker cri networking managed by cni
+I0321 06:34:01.806828   31507 docker_service.go:149] Setting cgroupDriver to cgroupfs
+I0321 06:34:01.808485   31507 manager.go:100] Restored alternative runtime managed sandboxes and containers to cache
+I0321 06:34:01.808549   31507 manager.go:118] Start frakti at /var/run/frakti.sock
+I0321 06:34:07.777386   31507 manager.go:458] ListImages with request &ListImagesRequest{Filter:nil,}
+I0321 06:34:07.779714   31507 manager.go:458] ListImages with request &ListImagesRequest{Filter:nil,}
+I0321 06:34:07.782881   31507 manager.go:161] RunPodSandbox from runtime service with request &RunPodSandboxRequest{Config:&PodSandboxConfig{Metadata:&PodSandboxMetadata{Name:simple-sandbox-62c2fd85-0e00-11e7-8d64-42010a8c0008,Uid:,Namespace:,Attempt:0,},Hostname:,LogDirectory:,DnsConfig:nil,PortMappings:[],Labels:map[string]string{},Annotations:map[string]string{},Linux:nil,},}
+I0321 06:34:07.847849   31507 network.go:70] Get interface information in container ns, skip non-veth device lo
+I0321 06:34:07.848268   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device lo
+I0321 06:34:07.848272   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device eth0
+I0321 06:34:07.848381   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device virbr0-nic
+I0321 06:34:07.848385   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device tap0
+I0321 06:34:07.848387   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device vnet0
+I0321 06:34:12.686040   31507 manager.go:513] PullImage with request &PullImageRequest{Image:&ImageSpec{Image:busybox:latest,},Auth:nil,SandboxConfig:nil,}
+I0321 06:34:14.950895   31507 kube_docker_client.go:329] Stop pulling image "busybox:latest": "Digest: sha256:32f093055929dbc23dec4d03e09dfe971f5973a9ca5cf059cbfb644c206aa83f"
+I0321 06:34:14.952708   31507 manager.go:251] CreateContainer with request &CreateContainerRequest{PodSandboxId:k8s_POD.0_simple-sandbox-62c2fd85-0e00-11e7-8d64-42010a8c0008___9acb0442,Config:&ContainerConfig{Metadata:&ContainerMetadata{Name:simple-container-670906df-0e00-11e7-8d64-42010a8c0008,Attempt:0,},Image:&ImageSpec{Image:busybox:latest,},Command:[sh -c top],Args:[],WorkingDir:,Envs:[],Mounts:[],Devices:[],Labels:map[string]string{},Annotations:map[string]string{},LogPath:,Stdin:false,StdinOnce:false,Tty:false,Linux:nil,},SandboxConfig:&PodSandboxConfig{Metadata:&PodSandboxMetadata{Name:simple-sandbox-62c2fd85-0e00-11e7-8d64-42010a8c0008,Uid:,Namespace:,Attempt:0,},Hostname:,LogDirectory:,DnsConfig:nil,PortMappings:[],Labels:map[string]string{},Annotations:map[string]string{},Linux:nil,},}
+I0321 06:34:15.000364   31507 manager.go:269] StartContainer with request &StartContainerRequest{ContainerId:2590c8cab5882c54abb9476548a65d6fb827a94d382a9751d3c24d9ef68bc138,}
+I0321 06:34:17.112843   31507 manager.go:395] Attach with request &AttachRequest{ContainerId:2590c8cab5882c54abb9476548a65d6fb827a94d382a9751d3c24d9ef68bc138,Stdin:true,Tty:false,}
+I0321 06:34:17.113861   31507 manager.go:200] RemovePodSandbox from runtime service with request &RemovePodSandboxRequest{PodSandboxId:k8s_POD.0_simple-sandbox-62c2fd85-0e00-11e7-8d64-42010a8c0008___9acb0442,}
+I0321 06:34:17.368398   31507 manager.go:161] RunPodSandbox from runtime service with request &RunPodSandboxRequest{Config:&PodSandboxConfig{Metadata:&PodSandboxMetadata{Name:PodSandbox-for-create-container-6879972b-0e00-11e7-8d64-42010a8c0008,Uid:e2e-cri-uid,Namespace:e2e-cri-namespace,Attempt:2,},Hostname:,LogDirectory:,DnsConfig:nil,PortMappings:[],Labels:map[string]string{},Annotations:map[string]string{},Linux:nil,},}
+I0321 06:34:17.433197   31507 network.go:70] Get interface information in container ns, skip non-veth device lo
+I0321 06:34:17.433631   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device lo
+I0321 06:34:17.433635   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device eth0
+I0321 06:34:17.433707   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device virbr0-nic
+I0321 06:34:17.433710   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device tap0
+I0321 06:34:17.433712   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device vnet0
+I0321 06:34:22.151977   31507 manager.go:513] PullImage with request &PullImageRequest{Image:&ImageSpec{Image:busybox:latest,},Auth:nil,SandboxConfig:nil,}
+I0321 06:34:24.593313   31507 kube_docker_client.go:329] Stop pulling image "busybox:latest": "Digest: sha256:32f093055929dbc23dec4d03e09dfe971f5973a9ca5cf059cbfb644c206aa83f"
+I0321 06:34:24.595692   31507 manager.go:251] CreateContainer with request &CreateContainerRequest{PodSandboxId:k8s_POD.2_PodSandbox-for-create-container-6879972b-0e00-11e7-8d64-42010a8c0008_e2e-cri-namespace_e2e-cri-uid_aa209b8e,Config:&ContainerConfig{Metadata:&ContainerMetadata{Name:container-with-volume-test-6cc86f93-0e00-11e7-8d64-42010a8c0008,Attempt:2,},Image:&ImageSpec{Image:busybox:latest,},Command:[sh -c while [ -f /testk8s_POD.2_PodSandbox-for-create-container-6879972b-0e00-11e7-8d64-42010a8c0008_e2e-cri-namespace_e2e-cri-uid_aa209b8e/test.file ]; do sleep 1; done;],Args:[],WorkingDir:,Envs:[],Mounts:[&Mount{ContainerPath:/testk8s_POD.2_PodSandbox-for-create-container-6879972b-0e00-11e7-8d64-42010a8c0008_e2e-cri-namespace_e2e-cri-uid_aa209b8e,HostPath:/testk8s_POD.2_PodSandbox-for-create-container-6879972b-0e00-11e7-8d64-42010a8c0008_e2e-cri-namespace_e2e-cri-uid_aa209b8e,Readonly:false,SelinuxRelabel:false,}],Devices:[],Labels:map[string]string{},Annotations:map[string]string{},LogPath:,Stdin:false,StdinOnce:false,Tty:false,Linux:nil,},SandboxConfig:&PodSandboxConfig{Metadata:&PodSandboxMetadata{Name:PodSandbox-for-create-container-6879972b-0e00-11e7-8d64-42010a8c0008,Uid:e2e-cri-uid,Namespace:e2e-cri-namespace,Attempt:2,},Hostname:,LogDirectory:,DnsConfig:nil,PortMappings:[],Labels:map[string]string{},Annotations:map[string]string{},Linux:nil,},}
+I0321 06:34:24.640737   31507 manager.go:269] StartContainer with request &StartContainerRequest{ContainerId:c9a654dd674c3f3bece9035af71fc748f3be50f380c4e133e818fd0322814b01,}
+I0321 06:34:24.730320   31507 manager.go:341] ContainerStatus with request &ContainerStatusRequest{ContainerId:c9a654dd674c3f3bece9035af71fc748f3be50f380c4e133e818fd0322814b01,}
+I0321 06:34:24.732088   31507 manager.go:186] StopPodSandbox from runtime service with request &StopPodSandboxRequest{PodSandboxId:k8s_POD.2_PodSandbox-for-create-container-6879972b-0e00-11e7-8d64-42010a8c0008_e2e-cri-namespace_e2e-cri-uid_aa209b8e,}
+I0321 06:34:29.982763   31507 manager.go:200] RemovePodSandbox from runtime service with request &RemovePodSandboxRequest{PodSandboxId:k8s_POD.2_PodSandbox-for-create-container-6879972b-0e00-11e7-8d64-42010a8c0008_e2e-cri-namespace_e2e-cri-uid_aa209b8e,}
+I0321 06:34:29.987449   31507 manager.go:546] RemoveImage with request &RemoveImageRequest{Image:&ImageSpec{Image:busybox:latest,},}
+I0321 06:34:30.332011   31507 manager.go:161] RunPodSandbox from runtime service with request &RunPodSandboxRequest{Config:&PodSandboxConfig{Metadata:&PodSandboxMetadata{Name:create-simple-sandbox-7033a3fd-0e00-11e7-8d64-42010a8c0008,Uid:e2e-cri-uid,Namespace:e2e-cri-namespace,Attempt:2,},Hostname:,LogDirectory:,DnsConfig:nil,PortMappings:[],Labels:map[string]string{},Annotations:map[string]string{},Linux:nil,},}
+I0321 06:34:30.397623   31507 network.go:70] Get interface information in container ns, skip non-veth device lo
+I0321 06:34:30.398192   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device lo
+I0321 06:34:30.398197   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device eth0
+I0321 06:34:30.398276   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device virbr0-nic
+I0321 06:34:30.398279   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device tap0
+I0321 06:34:30.398281   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device vnet0
+I0321 06:34:35.070585   31507 manager.go:216] PodSandboxStatus with request &PodSandboxStatusRequest{PodSandboxId:k8s_POD.2_create-simple-sandbox-7033a3fd-0e00-11e7-8d64-42010a8c0008_e2e-cri-namespace_e2e-cri-uid_afd3a30c,}
+I0321 06:34:35.071383   31507 manager.go:200] RemovePodSandbox from runtime service with request &RemovePodSandboxRequest{PodSandboxId:k8s_POD.2_create-simple-sandbox-7033a3fd-0e00-11e7-8d64-42010a8c0008_e2e-cri-namespace_e2e-cri-uid_afd3a30c,}
+I0321 06:34:35.282092   31507 manager.go:161] RunPodSandbox from runtime service with request &RunPodSandboxRequest{Config:&PodSandboxConfig{Metadata:&PodSandboxMetadata{Name:PodSandbox-for-create-container-7326f1bb-0e00-11e7-8d64-42010a8c0008,Uid:e2e-cri-uid,Namespace:e2e-cri-namespace,Attempt:2,},Hostname:,LogDirectory:,DnsConfig:nil,PortMappings:[],Labels:map[string]string{},Annotations:map[string]string{},Linux:nil,},}
+I0321 06:34:35.345362   31507 network.go:70] Get interface information in container ns, skip non-veth device lo
+I0321 06:34:35.345789   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device lo
+I0321 06:34:35.345793   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device eth0
+I0321 06:34:35.345876   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device virbr0-nic
+I0321 06:34:35.345879   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device tap0
+I0321 06:34:35.345881   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device vnet0
+I0321 06:34:40.144036   31507 manager.go:513] PullImage with request &PullImageRequest{Image:&ImageSpec{Image:busybox:latest,},Auth:nil,SandboxConfig:nil,}
+I0321 06:34:43.446933   31507 kube_docker_client.go:329] Stop pulling image "busybox:latest": "Digest: sha256:32f093055929dbc23dec4d03e09dfe971f5973a9ca5cf059cbfb644c206aa83f"
+I0321 06:34:43.448536   31507 manager.go:251] CreateContainer with request &CreateContainerRequest{PodSandboxId:k8s_POD.2_PodSandbox-for-create-container-7326f1bb-0e00-11e7-8d64-42010a8c0008_e2e-cri-namespace_e2e-cri-uid_10cd9672,Config:&ContainerConfig{Metadata:&ContainerMetadata{Name:container-for-create-test-780527af-0e00-11e7-8d64-42010a8c0008,Attempt:2,},Image:&ImageSpec{Image:busybox:latest,},Command:[sh -c top],Args:[],WorkingDir:,Envs:[],Mounts:[],Devices:[],Labels:map[string]string{},Annotations:map[string]string{},LogPath:,Stdin:false,StdinOnce:false,Tty:false,Linux:nil,},SandboxConfig:&PodSandboxConfig{Metadata:&PodSandboxMetadata{Name:PodSandbox-for-create-container-7326f1bb-0e00-11e7-8d64-42010a8c0008,Uid:e2e-cri-uid,Namespace:e2e-cri-namespace,Attempt:2,},Hostname:,LogDirectory:,DnsConfig:nil,PortMappings:[],Labels:map[string]string{},Annotations:map[string]string{},Linux:nil,},}
+I0321 06:34:43.494497   31507 manager.go:295] RemoveContainer with request &RemoveContainerRequest{ContainerId:1ab8d599fedd0d1f5fc8b0a1e047bf6e850f4082b41d7129bdbdd07a5577d47a,}
+I0321 06:34:43.498257   31507 manager.go:312] ListContainers with request &ListContainersRequest{Filter:&ContainerFilter{Id:1ab8d599fedd0d1f5fc8b0a1e047bf6e850f4082b41d7129bdbdd07a5577d47a,State:nil,PodSandboxId:,LabelSelector:map[string]string{},},}
+I0321 06:34:43.499735   31507 manager.go:186] StopPodSandbox from runtime service with request &StopPodSandboxRequest{PodSandboxId:k8s_POD.2_PodSandbox-for-create-container-7326f1bb-0e00-11e7-8d64-42010a8c0008_e2e-cri-namespace_e2e-cri-uid_10cd9672,}
+I0321 06:34:43.759104   31507 manager.go:200] RemovePodSandbox from runtime service with request &RemovePodSandboxRequest{PodSandboxId:k8s_POD.2_PodSandbox-for-create-container-7326f1bb-0e00-11e7-8d64-42010a8c0008_e2e-cri-namespace_e2e-cri-uid_10cd9672,}
+I0321 06:34:43.760533   31507 manager.go:546] RemoveImage with request &RemoveImageRequest{Image:&ImageSpec{Image:busybox:latest,},}
+I0321 06:34:43.830730   31507 manager.go:161] RunPodSandbox from runtime service with request &RunPodSandboxRequest{Config:&PodSandboxConfig{Metadata:&PodSandboxMetadata{Name:simple-sandbox-783f6f0b-0e00-11e7-8d64-42010a8c0008,Uid:,Namespace:,Attempt:0,},Hostname:,LogDirectory:,DnsConfig:nil,PortMappings:[],Labels:map[string]string{},Annotations:map[string]string{},Linux:nil,},}
+I0321 06:34:43.897428   31507 network.go:70] Get interface information in container ns, skip non-veth device lo
+I0321 06:34:43.897923   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device lo
+I0321 06:34:43.897928   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device eth0
+I0321 06:34:43.898011   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device virbr0-nic
+I0321 06:34:43.898014   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device tap0
+I0321 06:34:43.898015   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device vnet0
+I0321 06:34:48.741140   31507 manager.go:513] PullImage with request &PullImageRequest{Image:&ImageSpec{Image:busybox:latest,},Auth:nil,SandboxConfig:nil,}
+I0321 06:34:52.233256   31507 kube_docker_client.go:329] Stop pulling image "busybox:latest": "Digest: sha256:32f093055929dbc23dec4d03e09dfe971f5973a9ca5cf059cbfb644c206aa83f"
+I0321 06:34:52.234980   31507 manager.go:251] CreateContainer with request &CreateContainerRequest{PodSandboxId:k8s_POD.0_simple-sandbox-783f6f0b-0e00-11e7-8d64-42010a8c0008___18d2fe90,Config:&ContainerConfig{Metadata:&ContainerMetadata{Name:simple-container-7d41dcb3-0e00-11e7-8d64-42010a8c0008,Attempt:0,},Image:&ImageSpec{Image:busybox:latest,},Command:[sh -c top],Args:[],WorkingDir:,Envs:[],Mounts:[],Devices:[],Labels:map[string]string{},Annotations:map[string]string{},LogPath:,Stdin:false,StdinOnce:false,Tty:false,Linux:nil,},SandboxConfig:&PodSandboxConfig{Metadata:&PodSandboxMetadata{Name:simple-sandbox-783f6f0b-0e00-11e7-8d64-42010a8c0008,Uid:,Namespace:,Attempt:0,},Hostname:,LogDirectory:,DnsConfig:nil,PortMappings:[],Labels:map[string]string{},Annotations:map[string]string{},Linux:nil,},}
+I0321 06:34:52.277717   31507 manager.go:269] StartContainer with request &StartContainerRequest{ContainerId:5efe0c93d8952425a42c31b60f6de467ab4f057c791a7d10ff686de87b14a609,}
+I0321 06:34:54.354319   31507 manager.go:357] ExecSync with request &ExecSyncRequest{ContainerId:5efe0c93d8952425a42c31b60f6de467ab4f057c791a7d10ff686de87b14a609,Cmd:[echo blablabla],Timeout:0,}
+I0321 06:34:54.401327   31507 manager.go:200] RemovePodSandbox from runtime service with request &RemovePodSandboxRequest{PodSandboxId:k8s_POD.0_simple-sandbox-783f6f0b-0e00-11e7-8d64-42010a8c0008___18d2fe90,}
+I0321 06:34:54.661285   31507 manager.go:161] RunPodSandbox from runtime service with request &RunPodSandboxRequest{Config:&PodSandboxConfig{Metadata:&PodSandboxMetadata{Name:create-simple-sandbox-7eb3ffc1-0e00-11e7-8d64-42010a8c0008,Uid:e2e-cri-uid,Namespace:e2e-cri-namespace,Attempt:2,},Hostname:,LogDirectory:,DnsConfig:nil,PortMappings:[],Labels:map[string]string{},Annotations:map[string]string{},Linux:nil,},}
+I0321 06:34:54.728645   31507 network.go:70] Get interface information in container ns, skip non-veth device lo
+I0321 06:34:54.729120   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device lo
+I0321 06:34:54.729124   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device eth0
+I0321 06:34:54.729203   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device virbr0-nic
+I0321 06:34:54.729206   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device tap0
+I0321 06:34:54.729208   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device vnet0
+I0321 06:34:59.585790   31507 manager.go:216] PodSandboxStatus with request &PodSandboxStatusRequest{PodSandboxId:k8s_POD.2_create-simple-sandbox-7eb3ffc1-0e00-11e7-8d64-42010a8c0008_e2e-cri-namespace_e2e-cri-uid_83e4f98d,}
+I0321 06:34:59.586538   31507 manager.go:200] RemovePodSandbox from runtime service with request &RemovePodSandboxRequest{PodSandboxId:k8s_POD.2_create-simple-sandbox-7eb3ffc1-0e00-11e7-8d64-42010a8c0008_e2e-cri-namespace_e2e-cri-uid_83e4f98d,}
+I0321 06:34:59.799566   31507 manager.go:161] RunPodSandbox from runtime service with request &RunPodSandboxRequest{Config:&PodSandboxConfig{Metadata:&PodSandboxMetadata{Name:simple-sandbox-81c41224-0e00-11e7-8d64-42010a8c0008,Uid:,Namespace:,Attempt:0,},Hostname:,LogDirectory:,DnsConfig:nil,PortMappings:[],Labels:map[string]string{},Annotations:map[string]string{},Linux:nil,},}
+I0321 06:34:59.863497   31507 network.go:70] Get interface information in container ns, skip non-veth device lo
+I0321 06:34:59.864054   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device lo
+I0321 06:34:59.864059   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device eth0
+I0321 06:34:59.864138   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device virbr0-nic
+I0321 06:34:59.864140   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device tap0
+I0321 06:34:59.864142   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device vnet0
+I0321 06:35:04.690413   31507 manager.go:513] PullImage with request &PullImageRequest{Image:&ImageSpec{Image:busybox:latest,},Auth:nil,SandboxConfig:nil,}
+I0321 06:35:06.945083   31507 kube_docker_client.go:329] Stop pulling image "busybox:latest": "Digest: sha256:32f093055929dbc23dec4d03e09dfe971f5973a9ca5cf059cbfb644c206aa83f"
+I0321 06:35:06.946738   31507 manager.go:251] CreateContainer with request &CreateContainerRequest{PodSandboxId:k8s_POD.0_simple-sandbox-81c41224-0e00-11e7-8d64-42010a8c0008___d04ab55f,Config:&ContainerConfig{Metadata:&ContainerMetadata{Name:simple-container-8606b3d7-0e00-11e7-8d64-42010a8c0008,Attempt:0,},Image:&ImageSpec{Image:busybox:latest,},Command:[sh -c top],Args:[],WorkingDir:,Envs:[],Mounts:[],Devices:[],Labels:map[string]string{},Annotations:map[string]string{},LogPath:,Stdin:false,StdinOnce:false,Tty:false,Linux:nil,},SandboxConfig:&PodSandboxConfig{Metadata:&PodSandboxMetadata{Name:simple-sandbox-81c41224-0e00-11e7-8d64-42010a8c0008,Uid:,Namespace:,Attempt:0,},Hostname:,LogDirectory:,DnsConfig:nil,PortMappings:[],Labels:map[string]string{},Annotations:map[string]string{},Linux:nil,},}
+I0321 06:35:06.989650   31507 manager.go:269] StartContainer with request &StartContainerRequest{ContainerId:e0583e0941733161604864ea783c57092effa0d30b1f930fdcde3c43c3d46174,}
+I0321 06:35:09.060480   31507 manager.go:380] Exec with request &ExecRequest{ContainerId:e0583e0941733161604864ea783c57092effa0d30b1f930fdcde3c43c3d46174,Cmd:[blablabla],Tty:false,Stdin:false,}
+I0321 06:35:09.061495   31507 manager.go:200] RemovePodSandbox from runtime service with request &RemovePodSandboxRequest{PodSandboxId:k8s_POD.0_simple-sandbox-81c41224-0e00-11e7-8d64-42010a8c0008___d04ab55f,}
+I0321 06:35:09.315669   31507 manager.go:458] ListImages with request &ListImagesRequest{Filter:nil,}
+I0321 06:35:09.317691   31507 manager.go:458] ListImages with request &ListImagesRequest{Filter:nil,}
+I0321 06:35:09.319930   31507 manager.go:161] RunPodSandbox from runtime service with request &RunPodSandboxRequest{Config:&PodSandboxConfig{Metadata:&PodSandboxMetadata{Name:create-simple-sandbox-for-stop8770cfa6-0e00-11e7-8d64-42010a8c0008,Uid:e2e-cri-uid,Namespace:e2e-cri-namespace,Attempt:2,},Hostname:,LogDirectory:,DnsConfig:nil,PortMappings:[],Labels:map[string]string{},Annotations:map[string]string{},Linux:nil,},}
+I0321 06:35:09.440781   31507 network.go:70] Get interface information in container ns, skip non-veth device lo
+I0321 06:35:09.441325   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device lo
+I0321 06:35:09.441332   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device eth0
+I0321 06:35:09.441436   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device virbr0-nic
+I0321 06:35:09.441441   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device tap0
+I0321 06:35:09.441445   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device vnet0
+I0321 06:35:14.278031   31507 manager.go:216] PodSandboxStatus with request &PodSandboxStatusRequest{PodSandboxId:k8s_POD.2_create-simple-sandbox-for-stop8770cfa6-0e00-11e7-8d64-42010a8c0008_e2e-cri-namespace_e2e-cri-uid_6172bfe3,}
+I0321 06:35:14.278649   31507 manager.go:186] StopPodSandbox from runtime service with request &StopPodSandboxRequest{PodSandboxId:k8s_POD.2_create-simple-sandbox-for-stop8770cfa6-0e00-11e7-8d64-42010a8c0008_e2e-cri-namespace_e2e-cri-uid_6172bfe3,}
+I0321 06:35:14.528410   31507 manager.go:216] PodSandboxStatus with request &PodSandboxStatusRequest{PodSandboxId:k8s_POD.2_create-simple-sandbox-for-stop8770cfa6-0e00-11e7-8d64-42010a8c0008_e2e-cri-namespace_e2e-cri-uid_6172bfe3,}
+I0321 06:35:14.529366   31507 manager.go:200] RemovePodSandbox from runtime service with request &RemovePodSandboxRequest{PodSandboxId:k8s_POD.2_create-simple-sandbox-for-stop8770cfa6-0e00-11e7-8d64-42010a8c0008_e2e-cri-namespace_e2e-cri-uid_6172bfe3,}
+I0321 06:35:14.530707   31507 manager.go:161] RunPodSandbox from runtime service with request &RunPodSandboxRequest{Config:&PodSandboxConfig{Metadata:&PodSandboxMetadata{Name:PodSandbox-for-create-container-8a8be60a-0e00-11e7-8d64-42010a8c0008,Uid:e2e-cri-uid,Namespace:e2e-cri-namespace,Attempt:2,},Hostname:,LogDirectory:,DnsConfig:nil,PortMappings:[],Labels:map[string]string{},Annotations:map[string]string{},Linux:nil,},}
+I0321 06:35:14.597326   31507 network.go:70] Get interface information in container ns, skip non-veth device lo
+I0321 06:35:14.597819   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device lo
+I0321 06:35:14.597823   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device eth0
+I0321 06:35:14.597894   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device virbr0-nic
+I0321 06:35:14.597897   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device tap0
+I0321 06:35:14.597899   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device vnet0
+I0321 06:35:19.322838   31507 manager.go:513] PullImage with request &PullImageRequest{Image:&ImageSpec{Image:busybox:latest,},Auth:nil,SandboxConfig:nil,}
+I0321 06:35:21.583662   31507 kube_docker_client.go:329] Stop pulling image "busybox:latest": "Digest: sha256:32f093055929dbc23dec4d03e09dfe971f5973a9ca5cf059cbfb644c206aa83f"
+I0321 06:35:21.600787   31507 manager.go:251] CreateContainer with request &CreateContainerRequest{PodSandboxId:k8s_POD.2_PodSandbox-for-create-container-8a8be60a-0e00-11e7-8d64-42010a8c0008_e2e-cri-namespace_e2e-cri-uid_516c42b0,Config:&ContainerConfig{Metadata:&ContainerMetadata{Name:container-for-create-test-8ec2bbdd-0e00-11e7-8d64-42010a8c0008,Attempt:2,},Image:&ImageSpec{Image:busybox:latest,},Command:[sh -c top],Args:[],WorkingDir:,Envs:[],Mounts:[],Devices:[],Labels:map[string]string{},Annotations:map[string]string{},LogPath:,Stdin:false,StdinOnce:false,Tty:false,Linux:nil,},SandboxConfig:&PodSandboxConfig{Metadata:&PodSandboxMetadata{Name:PodSandbox-for-create-container-8a8be60a-0e00-11e7-8d64-42010a8c0008,Uid:e2e-cri-uid,Namespace:e2e-cri-namespace,Attempt:2,},Hostname:,LogDirectory:,DnsConfig:nil,PortMappings:[],Labels:map[string]string{},Annotations:map[string]string{},Linux:nil,},}
+I0321 06:35:21.645189   31507 manager.go:269] StartContainer with request &StartContainerRequest{ContainerId:a5a9bc2825c4fb6c013d10872c6e6c79970edfaf0b4f9f01c5f509599488bc74,}
+I0321 06:35:21.727341   31507 manager.go:282] StopContainer with request &StopContainerRequest{ContainerId:a5a9bc2825c4fb6c013d10872c6e6c79970edfaf0b4f9f01c5f509599488bc74,Timeout:60,}
+E0321 06:35:26.729452   31507 container.go:125] Stop container a5a9bc2825c4fb6c013d10872c6e6c79970edfaf0b4f9f01c5f509599488bc74 failed: rpc error: code = 2 desc = chan broken while waiting containers: map[string]bool{"a5a9bc2825c4fb6c013d10872c6e6c79970edfaf0b4f9f01c5f509599488bc74":true}
+E0321 06:35:26.731475   31507 manager.go:287] StopContainer from hyper runtime service failed: rpc error: code = 2 desc = chan broken while waiting containers: map[string]bool{"a5a9bc2825c4fb6c013d10872c6e6c79970edfaf0b4f9f01c5f509599488bc74":true}
+I0321 06:35:26.732983   31507 manager.go:186] StopPodSandbox from runtime service with request &StopPodSandboxRequest{PodSandboxId:k8s_POD.2_PodSandbox-for-create-container-8a8be60a-0e00-11e7-8d64-42010a8c0008_e2e-cri-namespace_e2e-cri-uid_516c42b0,}
+I0321 06:35:27.032510   31507 manager.go:200] RemovePodSandbox from runtime service with request &RemovePodSandboxRequest{PodSandboxId:k8s_POD.2_PodSandbox-for-create-container-8a8be60a-0e00-11e7-8d64-42010a8c0008_e2e-cri-namespace_e2e-cri-uid_516c42b0,}
+I0321 06:35:27.037031   31507 manager.go:546] RemoveImage with request &RemoveImageRequest{Image:&ImageSpec{Image:busybox:latest,},}
+I0321 06:35:27.112369   31507 manager.go:161] RunPodSandbox from runtime service with request &RunPodSandboxRequest{Config:&PodSandboxConfig{Metadata:&PodSandboxMetadata{Name:create-simple-sandbox-for-remove920ba871-0e00-11e7-8d64-42010a8c0008,Uid:e2e-cri-uid,Namespace:e2e-cri-namespace,Attempt:2,},Hostname:,LogDirectory:,DnsConfig:nil,PortMappings:[],Labels:map[string]string{},Annotations:map[string]string{},Linux:nil,},}
+I0321 06:35:27.178944   31507 network.go:70] Get interface information in container ns, skip non-veth device lo
+I0321 06:35:27.179491   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device lo
+I0321 06:35:27.179496   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device eth0
+I0321 06:35:27.179575   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device virbr0-nic
+I0321 06:35:27.179578   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device tap0
+I0321 06:35:27.179580   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device vnet0
+I0321 06:35:31.943481   31507 manager.go:216] PodSandboxStatus with request &PodSandboxStatusRequest{PodSandboxId:k8s_POD.2_create-simple-sandbox-for-remove920ba871-0e00-11e7-8d64-42010a8c0008_e2e-cri-namespace_e2e-cri-uid_4874ed16,}
+I0321 06:35:31.944200   31507 manager.go:200] RemovePodSandbox from runtime service with request &RemovePodSandboxRequest{PodSandboxId:k8s_POD.2_create-simple-sandbox-for-remove920ba871-0e00-11e7-8d64-42010a8c0008_e2e-cri-namespace_e2e-cri-uid_4874ed16,}
+I0321 06:35:32.153831   31507 manager.go:229] ListPodSandbox with request &ListPodSandboxRequest{Filter:&PodSandboxFilter{Id:k8s_POD.2_create-simple-sandbox-for-remove920ba871-0e00-11e7-8d64-42010a8c0008_e2e-cri-namespace_e2e-cri-uid_4874ed16,State:nil,LabelSelector:map[string]string{},},}
+I0321 06:35:32.157010   31507 manager.go:458] ListImages with request &ListImagesRequest{Filter:nil,}
+I0321 06:35:32.158508   31507 manager.go:458] ListImages with request &ListImagesRequest{Filter:nil,}
+I0321 06:35:32.160447   31507 manager.go:458] ListImages with request &ListImagesRequest{Filter:nil,}
+I0321 06:35:32.161534   31507 manager.go:458] ListImages with request &ListImagesRequest{Filter:nil,}
+I0321 06:35:32.164311   31507 manager.go:161] RunPodSandbox from runtime service with request &RunPodSandboxRequest{Config:&PodSandboxConfig{Metadata:&PodSandboxMetadata{Name:create-simple-sandbox-for-list950e886b-0e00-11e7-8d64-42010a8c0008,Uid:e2e-cri-uid,Namespace:e2e-cri-namespace,Attempt:2,},Hostname:,LogDirectory:,DnsConfig:nil,PortMappings:[],Labels:map[string]string{},Annotations:map[string]string{},Linux:nil,},}
+I0321 06:35:32.229700   31507 network.go:70] Get interface information in container ns, skip non-veth device lo
+I0321 06:35:32.230162   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device lo
+I0321 06:35:32.230166   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device eth0
+I0321 06:35:32.230234   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device virbr0-nic
+I0321 06:35:32.230237   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device tap0
+I0321 06:35:32.230239   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device vnet0
+I0321 06:35:36.949005   31507 manager.go:216] PodSandboxStatus with request &PodSandboxStatusRequest{PodSandboxId:k8s_POD.2_create-simple-sandbox-for-list950e886b-0e00-11e7-8d64-42010a8c0008_e2e-cri-namespace_e2e-cri-uid_4b08b92b,}
+I0321 06:35:36.949705   31507 manager.go:229] ListPodSandbox with request &ListPodSandboxRequest{Filter:&PodSandboxFilter{Id:k8s_POD.2_create-simple-sandbox-for-list950e886b-0e00-11e7-8d64-42010a8c0008_e2e-cri-namespace_e2e-cri-uid_4b08b92b,State:nil,LabelSelector:map[string]string{},},}
+I0321 06:35:36.951322   31507 manager.go:200] RemovePodSandbox from runtime service with request &RemovePodSandboxRequest{PodSandboxId:k8s_POD.2_create-simple-sandbox-for-list950e886b-0e00-11e7-8d64-42010a8c0008_e2e-cri-namespace_e2e-cri-uid_4b08b92b,}
+I0321 06:35:37.161324   31507 manager.go:161] RunPodSandbox from runtime service with request &RunPodSandboxRequest{Config:&PodSandboxConfig{Metadata:&PodSandboxMetadata{Name:PodSandbox-for-create-container-98090563-0e00-11e7-8d64-42010a8c0008,Uid:e2e-cri-uid,Namespace:e2e-cri-namespace,Attempt:2,},Hostname:,LogDirectory:,DnsConfig:nil,PortMappings:[],Labels:map[string]string{},Annotations:map[string]string{},Linux:nil,},}
+I0321 06:35:37.226908   31507 network.go:70] Get interface information in container ns, skip non-veth device lo
+I0321 06:35:37.227541   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device lo
+I0321 06:35:37.227546   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device eth0
+I0321 06:35:37.227620   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device virbr0-nic
+I0321 06:35:37.227623   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device tap0
+I0321 06:35:37.227625   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device vnet0
+I0321 06:35:42.128858   31507 manager.go:513] PullImage with request &PullImageRequest{Image:&ImageSpec{Image:busybox:latest,},Auth:nil,SandboxConfig:nil,}
+I0321 06:35:45.508156   31507 kube_docker_client.go:329] Stop pulling image "busybox:latest": "Digest: sha256:32f093055929dbc23dec4d03e09dfe971f5973a9ca5cf059cbfb644c206aa83f"
+I0321 06:35:45.509829   31507 manager.go:251] CreateContainer with request &CreateContainerRequest{PodSandboxId:k8s_POD.2_PodSandbox-for-create-container-98090563-0e00-11e7-8d64-42010a8c0008_e2e-cri-namespace_e2e-cri-uid_add87e4a,Config:&ContainerConfig{Metadata:&ContainerMetadata{Name:container-for-create-test-9d02f3f4-0e00-11e7-8d64-42010a8c0008,Attempt:2,},Image:&ImageSpec{Image:busybox:latest,},Command:[sh -c top],Args:[],WorkingDir:,Envs:[],Mounts:[],Devices:[],Labels:map[string]string{},Annotations:map[string]string{},LogPath:,Stdin:false,StdinOnce:false,Tty:false,Linux:nil,},SandboxConfig:&PodSandboxConfig{Metadata:&PodSandboxMetadata{Name:PodSandbox-for-create-container-98090563-0e00-11e7-8d64-42010a8c0008,Uid:e2e-cri-uid,Namespace:e2e-cri-namespace,Attempt:2,},Hostname:,LogDirectory:,DnsConfig:nil,PortMappings:[],Labels:map[string]string{},Annotations:map[string]string{},Linux:nil,},}
+I0321 06:35:45.554353   31507 manager.go:269] StartContainer with request &StartContainerRequest{ContainerId:6157ce1c25d2e20b0047b5ea315ac60408b6d85e9d261029081cd5d4b4dfaf42,}
+I0321 06:35:45.632856   31507 manager.go:341] ContainerStatus with request &ContainerStatusRequest{ContainerId:6157ce1c25d2e20b0047b5ea315ac60408b6d85e9d261029081cd5d4b4dfaf42,}
+I0321 06:35:45.634486   31507 manager.go:186] StopPodSandbox from runtime service with request &StopPodSandboxRequest{PodSandboxId:k8s_POD.2_PodSandbox-for-create-container-98090563-0e00-11e7-8d64-42010a8c0008_e2e-cri-namespace_e2e-cri-uid_add87e4a,}
+I0321 06:35:45.949830   31507 manager.go:200] RemovePodSandbox from runtime service with request &RemovePodSandboxRequest{PodSandboxId:k8s_POD.2_PodSandbox-for-create-container-98090563-0e00-11e7-8d64-42010a8c0008_e2e-cri-namespace_e2e-cri-uid_add87e4a,}
+I0321 06:35:45.954538   31507 manager.go:546] RemoveImage with request &RemoveImageRequest{Image:&ImageSpec{Image:busybox:latest,},}
+I0321 06:35:46.030751   31507 manager.go:458] ListImages with request &ListImagesRequest{Filter:nil,}
+I0321 06:35:46.032379   31507 manager.go:458] ListImages with request &ListImagesRequest{Filter:nil,}
+I0321 06:35:46.034672   31507 manager.go:161] RunPodSandbox from runtime service with request &RunPodSandboxRequest{Config:&PodSandboxConfig{Metadata:&PodSandboxMetadata{Name:PodSandbox-with-log-directory-9d53038d-0e00-11e7-8d64-42010a8c0008,Uid:e2e-cri-uid,Namespace:e2e-cri-namespace,Attempt:2,},Hostname:,LogDirectory:/var/log/pods/PodSandbox-with-log-directory-9d53038d-0e00-11e7-8d64-42010a8c0008/,DnsConfig:nil,PortMappings:[],Labels:map[string]string{},Annotations:map[string]string{},Linux:nil,},}
+I0321 06:35:46.102569   31507 network.go:70] Get interface information in container ns, skip non-veth device lo
+I0321 06:35:46.103141   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device lo
+I0321 06:35:46.103146   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device eth0
+I0321 06:35:46.103230   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device virbr0-nic
+I0321 06:35:46.103233   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device tap0
+I0321 06:35:46.103234   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device vnet0
+I0321 06:35:50.924661   31507 manager.go:513] PullImage with request &PullImageRequest{Image:&ImageSpec{Image:busybox:latest,},Auth:nil,SandboxConfig:nil,}
+I0321 06:35:54.205549   31507 kube_docker_client.go:329] Stop pulling image "busybox:latest": "Digest: sha256:32f093055929dbc23dec4d03e09dfe971f5973a9ca5cf059cbfb644c206aa83f"
+I0321 06:35:54.209419   31507 manager.go:251] CreateContainer with request &CreateContainerRequest{PodSandboxId:k8s_POD.2_PodSandbox-with-log-directory-9d53038d-0e00-11e7-8d64-42010a8c0008_e2e-cri-namespace_e2e-cri-uid_34040e1e,Config:&ContainerConfig{Metadata:&ContainerMetadata{Name:container-with-log-test-a232655b-0e00-11e7-8d64-42010a8c0008,Attempt:2,},Image:&ImageSpec{Image:busybox:latest,},Command:[echo hello world],Args:[],WorkingDir:,Envs:[],Mounts:[],Devices:[],Labels:map[string]string{},Annotations:map[string]string{},LogPath:container-with-log-test-a232655b-0e00-11e7-8d64-42010a8c0008.log,Stdin:false,StdinOnce:false,Tty:false,Linux:nil,},SandboxConfig:&PodSandboxConfig{Metadata:&PodSandboxMetadata{Name:PodSandbox-with-log-directory-9d53038d-0e00-11e7-8d64-42010a8c0008,Uid:e2e-cri-uid,Namespace:e2e-cri-namespace,Attempt:2,},Hostname:,LogDirectory:/var/log/pods/PodSandbox-with-log-directory-9d53038d-0e00-11e7-8d64-42010a8c0008/,DnsConfig:nil,PortMappings:[],Labels:map[string]string{},Annotations:map[string]string{},Linux:nil,},}
+I0321 06:35:54.252458   31507 manager.go:269] StartContainer with request &StartContainerRequest{ContainerId:99e7111e029d0a127d64c8dba4a20f59883454d76d958d2accf26f4865ac2202,}
+I0321 06:35:54.329495   31507 manager.go:341] ContainerStatus with request &ContainerStatusRequest{ContainerId:99e7111e029d0a127d64c8dba4a20f59883454d76d958d2accf26f4865ac2202,}
+I0321 06:35:55.332343   31507 manager.go:186] StopPodSandbox from runtime service with request &StopPodSandboxRequest{PodSandboxId:k8s_POD.2_PodSandbox-with-log-directory-9d53038d-0e00-11e7-8d64-42010a8c0008_e2e-cri-namespace_e2e-cri-uid_34040e1e,}
+I0321 06:35:55.605906   31507 manager.go:200] RemovePodSandbox from runtime service with request &RemovePodSandboxRequest{PodSandboxId:k8s_POD.2_PodSandbox-with-log-directory-9d53038d-0e00-11e7-8d64-42010a8c0008_e2e-cri-namespace_e2e-cri-uid_34040e1e,}
+I0321 06:35:55.609344   31507 manager.go:546] RemoveImage with request &RemoveImageRequest{Image:&ImageSpec{Image:busybox:latest,},}
+I0321 06:35:55.672521   31507 manager.go:161] RunPodSandbox from runtime service with request &RunPodSandboxRequest{Config:&PodSandboxConfig{Metadata:&PodSandboxMetadata{Name:simple-sandbox-a3119e6a-0e00-11e7-8d64-42010a8c0008,Uid:,Namespace:,Attempt:0,},Hostname:,LogDirectory:,DnsConfig:nil,PortMappings:[],Labels:map[string]string{},Annotations:map[string]string{},Linux:nil,},}
+I0321 06:35:55.736096   31507 network.go:70] Get interface information in container ns, skip non-veth device lo
+I0321 06:35:55.736908   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device lo
+I0321 06:35:55.736915   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device eth0
+I0321 06:35:55.737001   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device virbr0-nic
+I0321 06:35:55.737003   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device tap0
+I0321 06:35:55.737005   31507 network.go:124] Get bridge name in host net ns, skip non-bridge device vnet0
+I0321 06:36:00.482529   31507 manager.go:513] PullImage with request &PullImageRequest{Image:&ImageSpec{Image:busybox:latest,},Auth:nil,SandboxConfig:nil,}
